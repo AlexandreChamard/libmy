@@ -5,7 +5,7 @@
 ## Login   <Alex.Chamardbois@epitech.net>
 ##
 ## Started on  Mon Oct 17 08:26:48 2016 Alexandre Chamard-bois
-## Last update Fri Jan 27 13:33:57 2017 Alexandre Chamard-bois
+## Last update Fri Jan 27 16:55:20 2017 Alexandre Chamard-bois
 ##
 
 CC	=	gcc
@@ -46,6 +46,7 @@ SRCS	=				my/my_getnbr.c									\
 							my/my_strupcase.c								\
 							my/my_swap.c										\
 							my/my_strdup.c									\
+							my/my_nb_line.c									\
 
 SRCS			+=	my_printf/my_printf.c						\
 							my_printf/my_putchar.c					\
