@@ -1,19 +1,37 @@
 /*
-** my_strlen.c for my_strlen in /home/Alex.Chamardbois/CPool/CPool_Day04
+** my_strlen.c for ok in /home/alexandre/Documents/projet_perso/printf2.0/
 **
 ** Made by Alexandre Chamard-bois
-** Login   <Alex.Chamardbois@epitech.net>
+** Login   <alexandre.chamard-bois@epitech.eu>
 **
-** Started on  Thu Oct  6 15:32:00 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 13:31:18 2017 Alexandre Chamard-bois
+** Started on  Sat Feb  4 23:13:43 2017 Alexandre Chamard-bois
+** Last update Sun Feb  5 16:49:04 2017 Alexandre Chamard-bois
 */
 
-int	my_strlen(char *str)
+int my_printstrlen(char *str)
 {
-	int	i;
+  return ((*str) ? my_printstrlen(str + 1) + 1 : 0);
+}
 
-	i= 0;
-	while (str[i])
+char		*my_printrevstr(char *str, int start)
+{
+	char	tmp;
+	int		size;
+	int		i;
+
+	size = my_printstrlen(str) - 1 - start;
+	i = 0;
+  if (str[start] == '-')
+  {
+    start++;
+    size--;
+  }
+	while (i < (size + 1) / 2)
+	{
+		tmp = str[i + start];
+		str[i + start] = str[size - i + start];
+		str[size - i + start] = tmp;
 		i++;
-	return (i);
+	}
+  return (str);
 }

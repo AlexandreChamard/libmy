@@ -5,7 +5,7 @@
 ## Login   <Alex.Chamardbois@epitech.net>
 ##
 ## Started on  Mon Oct 17 08:26:48 2016 Alexandre Chamard-bois
-## Last update Fri Jan 27 16:55:20 2017 Alexandre Chamard-bois
+## Last update Sun Feb  5 16:46:29 2017 Alexandre Chamard-bois
 ##
 
 CC	=	gcc
@@ -19,8 +19,6 @@ SRCS	=				my/my_getnbr.c									\
 							my/my_is_prime.c								\
 							my/my_power_rec.c								\
 							my/my_putchar.c									\
-							my/my_put_nbr.c									\
-							my/my_putstr.c									\
 							my/my_revstr.c									\
 							my/my_showmem.c									\
 							my/my_showstr.c									\
@@ -48,15 +46,14 @@ SRCS	=				my/my_getnbr.c									\
 							my/my_strdup.c									\
 							my/my_nb_line.c									\
 
-SRCS			+=	my_printf/my_printf.c						\
-							my_printf/my_putchar.c					\
-							my_printf/my_putstr.c						\
-							my_printf/my_put_nbr.c					\
-							my_printf/my_put_nbr_base.c			\
+SRCS			+=	my_printf/myprintf.c						\
+							my_printf/start.c								\
+							my_printf/str.c									\
+							my_printf/nbr.c									\
+							my_printf/my_realloc.c					\
 							my_printf/my_strlen.c						\
-							my_printf/call_func_part1.c			\
-							my_printf/call_func_part2.c			\
-							my_printf/call_func_part3.c			\
+							my_printf/call_function1.c			\
+							my_printf/call_function2.c			\
 
 SRCS			+=	get_next_line/get_next_line.c		\
 
