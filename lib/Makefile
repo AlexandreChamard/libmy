@@ -5,7 +5,7 @@
 ## Login   <Alex.Chamardbois@epitech.net>
 ##
 ## Started on  Mon Oct 17 08:26:48 2016 Alexandre Chamard-bois
-## Last update Sun Feb  5 16:46:29 2017 Alexandre Chamard-bois
+## Last update Fri Feb 17 11:32:37 2017 Alexandre Chamard-bois
 ##
 
 CC	=	gcc
@@ -15,10 +15,10 @@ CFLAGS	=	-W -Wall -Wextra
 CFLAGS	=	-I./include
 
 SRCS	=				my/my_getnbr.c									\
+							my/my_getfloat.c								\
 							my/my_isneg.c										\
 							my/my_is_prime.c								\
 							my/my_power_rec.c								\
-							my/my_putchar.c									\
 							my/my_revstr.c									\
 							my/my_showmem.c									\
 							my/my_showstr.c									\

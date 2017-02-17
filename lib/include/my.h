@@ -5,11 +5,12 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct 13 22:40:23 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 16:55:36 2017 Alexandre Chamard-bois
+** Last update Fri Feb 17 11:32:21 2017 Alexandre Chamard-bois
 */
 
 int	my_find_prime_sup(int);
-int	my_getnbr(char);
+int	my_getnbr(char *);
+double	my_getfloat(char *);
 int	my_isneg(int);
 int	my_is_prime(int);
 int	my_power_rec(int, int);

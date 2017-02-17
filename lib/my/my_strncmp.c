@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 18:31:59 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 13:14:43 2017 Alexandre Chamard-bois
+** Last update Mon Feb  6 21:17:17 2017 Alexandre Chamard-bois
 */
 
 int    my_strncmp(char *s1, char *s2, int n)
@@ -16,5 +16,7 @@ int    my_strncmp(char *s1, char *s2, int n)
 		s2++;
 		n--;
 	}
+	if (!n)
+		return (0);
 	return (*s1 - *s2);
 }
