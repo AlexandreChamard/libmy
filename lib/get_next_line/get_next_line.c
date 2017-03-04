@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 22:01:04 2017 Alexandre Chamard-bois
-** Last update Wed Jan  4 22:03:49 2017 Alexandre Chamard-bois
+** Last update Sat Mar  4 15:16:21 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -102,11 +102,11 @@ char *get_next_line(const int fd)
   if (str == NULL || ((s < 0 && i <= 0) && str[0] == 0))
   {
     free_func(save, str);
+    s = 0;
     return (NULL);
   }
-  i = 0;
-  while (str[i] && str[i] != '\n')
-    i++;
+  i = -1;
+  while (str[++i] && str[i] != '\n');
   str[i] = 0;
   save = create_save(str + i + 1, &s, i);
   return (str);
