@@ -15,9 +15,9 @@ static int comp(char *str, char *to_find)
     str++;
     to_find++;
   }
-  if (!*to_find)
-    return (0);
-  return (1);
+  if (*to_find)
+    return (1);
+  return (0);
 }
 
 char	my_strstr(char *str, char *to_find)
