@@ -5,7 +5,7 @@
 ## Login   <Alex.Chamardbois@epitech.net>
 ##
 ## Started on  Mon Oct 17 08:26:48 2016 Alexandre Chamard-bois
-## Last update Fri Feb 17 11:32:37 2017 Alexandre Chamard-bois
+## Last update Tue Mar 21 17:10:25 2017 Alexandre Chamard-bois
 ##
 
 CC	=	gcc
@@ -15,8 +15,7 @@ CFLAGS	=	-W -Wall -Wextra
 CFLAGS	=	-I./include
 
 SRCS	=				my/my_getnbr.c									\
-							my/my_getfloat.c								\
-							my/my_isneg.c										\
+							my/my_atof.c										\
 							my/my_is_prime.c								\
 							my/my_power_rec.c								\
 							my/my_revstr.c									\
@@ -29,11 +28,7 @@ SRCS	=				my/my_getnbr.c									\
 							my/my_strcat.c									\
 							my/my_strcmp.c									\
 							my/my_strcpy.c									\
-							my/my_str_isalpha.c							\
-							my/my_str_islower.c							\
 							my/my_str_isnum.c								\
-							my/my_str_isprintable.c					\
-							my/my_str_isupper.c							\
 							my/my_strlen.c									\
 							my/my_strlowcase.c							\
 							my/my_strncat.c									\
@@ -45,6 +40,8 @@ SRCS	=				my/my_getnbr.c									\
 							my/my_swap.c										\
 							my/my_strdup.c									\
 							my/my_nb_line.c									\
+							my/my_is_str.c									\
+							my/my_memset.c									\
 
 SRCS			+=	my_printf/myprintf.c						\
 							my_printf/start.c								\

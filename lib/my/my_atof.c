@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Fri Feb 17 10:02:38 2017 Alexandre Chamard-bois
-** Last update Fri Feb 17 11:23:51 2017 Alexandre Chamard-bois
+** Last update Tue Mar 21 15:46:49 2017 Alexandre Chamard-bois
 */
 
 int getfl(char *str, int *rang)
@@ -23,7 +23,7 @@ int getfl(char *str, int *rang)
   return (fl);
 }
 
-double my_getfloat(char *str)
+double my_atof(char *str)
 {
   double nb;
   double fl;
@@ -31,14 +31,12 @@ double my_getfloat(char *str)
   int nega;
   int i;
 
+  nb = 0;
   rang = 0;
   i = 0;
   nega = 1;
-  if (*str == '-')
-  {
-    nega = -1;
+  if (*str == '-' && (nega = -1))
     i++;
-  }
   while (str[i] >= '0' && str[i] <= '9')
   {
     nb = nb * 10 + str[i] - '0';

@@ -5,31 +5,14 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 20:11:24 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 13:02:49 2017 Alexandre Chamard-bois
+** Last update Tue Mar 21 15:52:46 2017 Alexandre Chamard-bois
 */
-
-static int	my_strlen(char *str)
-{
-	int				i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int		my_str_isnum(char *str)
 {
-	int	i;
-	int	size_str;
-
-	i = 0;
-	size_str = my_strlen(str);
-	while (i < size_str)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+	while (*str >= '0' && *str <= '9')
+		str++;
+	if (*str)
+		return (1);
+	return (0);
 }

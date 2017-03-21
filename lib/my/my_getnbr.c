@@ -5,30 +5,22 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct  6 22:28:26 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:54:02 2017 Alexandre Chamard-bois
+** Last update Tue Mar 21 15:48:37 2017 Alexandre Chamard-bois
 */
 
 int			my_getnbr(char *str)
 {
-	long	nbr_long;
-	int		i;
+	int		nbr;
 	int		nega;
 
-	i = 0;
-	nbr_long = 0;
+	nbr = 0;
 	nega = 1;
-	if (str[i] == '-')
+	if (*str == '-' && (nega = -1))
+		str++;
+	while (*str <= '9' && *str >= '0')
 	{
-		nega = -1;
-		i++;
+		nbr = nbr * 10 + *str - '0';
+		str++;
 	}
-	while (str[i] <= '9' && str[i] >= '0')
-	{
-		nbr_long = nbr_long * 10 + str[i] - '0';
-		i++;
-	}
-	nbr_long = nega * nbr_long;
-	if (nbr_long > -2147483648 && nbr_long < 2147483647)
-		return (nbr_long);
-	return (0);
+	return (nega * nbr);
 }

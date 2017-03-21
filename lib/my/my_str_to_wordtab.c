@@ -17,7 +17,7 @@ int	nb_word(char *s, int i, int n)
 
 int	size_word(char *s)
 {
-	return (*s != ' ' ? size_word(s + 1) + 1 : 0);
+	return (*s && *s != ' ' ? size_word(s + 1) + 1 : 0);
 }
 
 int		get_word(char *tab, char *str)
