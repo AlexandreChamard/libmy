@@ -1,72 +1,95 @@
 ##
-## Makefile for makefile in /home/Alex.Chamardbois/CPool/CPool_Day10/lib/my
+## Makefile for ok in /home/alexandre/Documents/lib/my_lib/
 ##
 ## Made by Alexandre Chamard-bois
-## Login   <Alex.Chamardbois@epitech.net>
+## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
-## Started on  Mon Oct 17 08:26:48 2016 Alexandre Chamard-bois
-## Last update Tue Mar 21 17:10:25 2017 Alexandre Chamard-bois
+## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
+## Last update Fri Apr  7 17:12:12 2017 Alexandre Chamard-bois
 ##
 
-CC	=	gcc
+include ./include/depend.mk
 
-CFLAGS	=	-W -Wall -Wextra
+AR	=	ar rc
 
-CFLAGS	=	-I./include
+SRC_MY	=				my_getnbr.c									\
+								my_atof.c										\
+								my_is_prime.c								\
+								my_power_rec.c							\
+								my_revstr.c									\
+								my_showmem.c								\
+								my_showstr.c								\
+								my_show_wordtab.c						\
+								my_sort_int_tab.c						\
+								my_square_root.c						\
+								my_strcapitalize.c					\
+								my_strcat.c									\
+								my_strcmp.c									\
+								my_strcpy.c									\
+								my_str_isnum.c							\
+								my_strlen.c									\
+								my_strlowcase.c							\
+								my_strncat.c								\
+								my_strncmp.c								\
+								my_strncpy.c								\
+								my_strstr.c									\
+								my_str_to_wordtab.c					\
+								my_strupcase.c							\
+								my_swap.c										\
+								my_strdup.c									\
+								my_nb_line.c								\
+								my_is_str.c									\
+								my_memset.c									\
 
-SRCS	=				my/my_getnbr.c									\
-							my/my_atof.c										\
-							my/my_is_prime.c								\
-							my/my_power_rec.c								\
-							my/my_revstr.c									\
-							my/my_showmem.c									\
-							my/my_showstr.c									\
-							my/my_show_wordtab.c						\
-							my/my_sort_int_tab.c						\
-							my/my_square_root.c							\
-							my/my_strcapitalize.c						\
-							my/my_strcat.c									\
-							my/my_strcmp.c									\
-							my/my_strcpy.c									\
-							my/my_str_isnum.c								\
-							my/my_strlen.c									\
-							my/my_strlowcase.c							\
-							my/my_strncat.c									\
-							my/my_strncmp.c									\
-							my/my_strncpy.c									\
-							my/my_strstr.c									\
-							my/my_str_to_wordtab.c					\
-							my/my_strupcase.c								\
-							my/my_swap.c										\
-							my/my_strdup.c									\
-							my/my_nb_line.c									\
-							my/my_is_str.c									\
-							my/my_memset.c									\
+SRC_PRINTF	=		myprintf.c									\
+								start.c											\
+								str.c												\
+								nbr.c												\
+								my_realloc.c								\
+								my_strlen.c									\
+								call_function1.c						\
+								call_function2.c						\
 
-SRCS			+=	my_printf/myprintf.c						\
-							my_printf/start.c								\
-							my_printf/str.c									\
-							my_printf/nbr.c									\
-							my_printf/my_realloc.c					\
-							my_printf/my_strlen.c						\
-							my_printf/call_function1.c			\
-							my_printf/call_function2.c			\
+SRC_GNL			=		get_next_line.c							\
 
-SRCS			+=	get_next_line/get_next_line.c		\
+CFLAGS			+=	-I./include/
 
-OBJS	=	$(SRCS:.c=.o)
+SDIR_MY				=	my
+SDIR_PRINTF		=	my_printf
+SDIR_GNL			=	gnl
+
+_OBJ_MY    		=	$(SRC_MY:.c=.o)
+_OBJ_PRINTF 	=	$(SRC_PRINTF:.c=.o)
+_OBJ_GNL    	=	$(SRC_GNL:.c=.o)
+
+OBJ_MY				=	$(patsubst %,$(ODIR)/%,$(_OBJ_MY))
+OBJ_PRINTF		=	$(patsubst %,$(ODIR)/%,$(_OBJ_PRINTF))
+OBJ_GNL				=	$(patsubst %,$(ODIR)/%,$(_OBJ_GNL))
 
 NAME	=	libmy.a
 
-all:		$(NAME)
+all		:	$(NAME)
 
-$(NAME):	$(OBJS)
-		ar rc $(NAME) $(OBJS)
+$(ODIR)/%.o	:	$(SDIR_MY)/%.c
+	$(CC) $(CFLAGS)	-c -o $@ $<
+$(ODIR)/%.o	:	$(SDIR_PRINTF)/%.c
+	$(CC) $(CFLAGS)	-c -o $@ $<
+$(ODIR)/%.o	:	$(SDIR_GNL)/%.c
+	$(CC) $(CFLAGS)	-c -o $@ $<
 
-clean:
-		rm -f $(OBJS)
+mkobj		:
+	./tools/verif_objdir
 
-fclean:		clean
-		rm -f $(NAME)
+$(NAME)		:	mkobj $(OBJ_MY) mkobj $(OBJ_PRINTF) mkobj $(OBJ_GNL)
+						$(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL)
+						ranlib $(NAME)
 
-re:		fclean all
+clean		:
+	rm -f $(OBJ_MY)
+	rm -f $(OBJ_PRINTF)
+	rm -f $(OBJ_GNL)
+
+fclean		:	clean
+	rm -f $(NAME)
+
+re		:	fclean all

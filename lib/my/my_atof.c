@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Fri Feb 17 10:02:38 2017 Alexandre Chamard-bois
-** Last update Tue Mar 21 15:46:49 2017 Alexandre Chamard-bois
+** Last update Fri Apr  7 17:09:43 2017 Alexandre Chamard-bois
 */
 
 int getfl(char *str, int *rang)
@@ -32,6 +32,7 @@ double my_atof(char *str)
   int i;
 
   nb = 0;
+  fl = 0;
   rang = 0;
   i = 0;
   nega = 1;

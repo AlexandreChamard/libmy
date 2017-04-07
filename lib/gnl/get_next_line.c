@@ -94,6 +94,7 @@ char *get_next_line(const int fd)
 
   str = save;
   end = s;
+  i = 0;
   if (str == NULL)
     if ((str = malloc(sizeof(char) * (READ_SIZE + 1))) == NULL)
       return (NULL);
