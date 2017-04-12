@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct  7 20:53:54 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:27:37 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 23:21:49 2017 Alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -17,10 +17,10 @@ int		my_square_root(const int nb)
 
 	au_carre = 0;
 	nombre = 0;
-	while (nb > au_carre)
+	while (au_carre < nb)
 	{
 		nombre++;
-		au_carre = my_power_rec(nombre, 2);
+		au_carre = nombre * nombre;
 	}
 	if (nb == au_carre)
 		return (nombre);

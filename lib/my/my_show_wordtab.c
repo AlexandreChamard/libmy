@@ -5,29 +5,16 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct 13 09:34:29 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:57:36 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 23:18:51 2017 Alexandre Chamard-bois
 */
 
-void	my_putchar(char c);
+#include "libmy.h"
 
-int		my_show_wordtab(char **tab)
+void		my_show_wordtab(char **tab)
 {
 	int	i;
-	int	j;
 
-	i = 0;
-	j = 0;
-	while (1 != 0)
-	{
-		if (tab[j][i] == 0)
-		{
-			i = 0;
-			j++;
-			my_putchar('\n');
-		}
-		if (tab[j] == 0)
-			return (0);
-		my_putchar(tab[j][i]);
-		i++;
-	}
+	i = -1;
+	while (tab[++i])
+		my_puts(tab[i]);
 }

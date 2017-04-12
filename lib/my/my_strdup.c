@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:40:00 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 23:05:10 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -49,9 +49,9 @@ char 		*my_worddup(const char *str)
 	quote = 0;
 	while (str[i])
 	{
-		if (IS_QUOTE(str[i]))
-			quote = IS_QUOTE(str[i]);
-		if (!IS_SPACE(str[i]) && !quote)
+		if (QUOTE(str[i]))
+			quote = QUOTE(str[i]);
+		if (SPACE(str[i]) && !quote)
 			break;
 		i++;
 	}

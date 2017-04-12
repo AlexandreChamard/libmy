@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:51:41 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 23:29:01 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -50,7 +50,7 @@ int	    my_str_isprintable(const char *str);
 int	    my_str_isupper(const char *str);
 int	    my_strlen(const char *);
 char    *my_strlowcase(char *);
-char    *my_strncat(char *, const char *, const int);
+char    *my_strncat(const char *first, const char *second, const int n);
 char    *my_strncpy(char *, const char *, int);
 char    *my_strdup(const char *str);
 char    *my_strndup(const char *str, const int size);
@@ -58,8 +58,8 @@ char 		*my_worddup(const char *str);
 char    my_strstr(const char *str, const char *to_find);
 char    *my_strupcase(char *);
 int	    my_swap(int *, int *);
-int	    my_show_wordtab(char **);
-int     my_nb_line(const char **tab);
+void    my_show_wordtab(char **tab);
+int     my_nb_line(char **tab);
 void    my_memset(void *data, const char type, const int size);
 char    *my_strtoc(const char *str, const char *c);
 char    *clean_line(char *str);

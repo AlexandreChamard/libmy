@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:32:11 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:48:57 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 23:05:05 2017 Alexandre Chamard-bois
 */
 
 #ifndef MIN
@@ -26,9 +26,9 @@
 #ifndef LOWER
 # define LOWER(c) ((c) >= 'a' && (c) <= 'z' ? 1 : 0)
 #endif
-#ifndef IS_QUOTE
-# define IS_QUOTE(c) ((c) != '\'' ? (c) != '\"' ? (c) != '`' ? 0 : 1 : 2 : 3)
+#ifndef QUOTE
+# define QUOTE(c) ((c) != '\'' ? (c) != '\"' ? (c) != '`' ? 0 : 1 : 2 : 3)
 #endif
-#ifndef IS_SPACE
-# define IS_SPACE(c) ((c) == ' ' || (c) == '\t' ? 0 : 1)
+#ifndef SPACE
+# define SPACE(c) ((c) == ' ' || (c) == '\t' ? 1 : 0)
 #endif
