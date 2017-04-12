@@ -5,10 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Tue Mar 21 16:15:35 2017 Alexandre Chamard-bois
-** Last update Tue Mar 21 16:24:24 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:53:09 2017 Alexandre Chamard-bois
 */
 
-void my_memset(void *data, char type, int size)
+void my_memset(void *data, const char type, const int size)
 {
   char *str;
   int i;

@@ -5,18 +5,10 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 11:40:03 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:56:46 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:54:53 2017 Alexandre Chamard-bois
 */
 
-static inline int	my_strlen(char *str)
-{
-	int							i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i = i + 1;
-	return (i);
-}
+#include "libmy.h"
 
 char		*my_revstr(char *str)
 {

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 21:33:43 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:39:52 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:26:46 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -42,7 +42,7 @@ int verif_separator(char *str, char **separator)
   return (-1);
 }
 
-char *my_split(char *str, int *who, int nb, ...)
+char *my_split(char *str, int *who, const int nb, ...)
 {
   char **separator;
   char *split;

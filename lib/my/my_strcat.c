@@ -5,13 +5,13 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 15:13:31 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 20:40:07 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:34:42 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 #include <unistd.h>
 
-char		*my_strcat(char *first, char *second)
+char		*my_strcat(const char *first, const char *second)
 {
 	int		i;
 	int		j;
@@ -33,7 +33,7 @@ char		*my_strcat(char *first, char *second)
 	return (concat);
 }
 
-char	*my_strncat(char *dest, char *src, int nb)
+char	*my_strncat(char *dest, const char *src, const int nb)
 {
 	int	size_dest;
 	int	i;

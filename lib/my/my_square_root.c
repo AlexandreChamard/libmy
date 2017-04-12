@@ -5,12 +5,12 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct  7 20:53:54 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:59:21 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:27:37 2017 Alexandre Chamard-bois
 */
 
-int		my_power_rec(int nb, int p);
+#include "libmy.h"
 
-int		my_square_root(int nb)
+int		my_square_root(const int nb)
 {
 	int	nombre;
 	int	au_carre;

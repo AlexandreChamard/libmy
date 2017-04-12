@@ -5,22 +5,22 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct 14 17:39:59 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 13:05:34 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:29:07 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 
-int	nb_word(char *s, int i, int n)
+int	nb_word(const char *s, int i, int n)
 {
 	*s ? *s != ' ' && !i ? n += 1 : 0 : 0;
 	return (*s ? *s == ' ' ? nb_word(s + 1, 0, n) : nb_word(s + 1, 1, n) : n);
 }
 
-int	size_word(char *s)
+int	size_word(const char *s)
 {
 	return (*s && *s != ' ' ? size_word(s + 1) + 1 : 0);
 }
 
-int		get_word(char *tab, char *str)
+int		get_word(char *tab, const char *str)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int		get_word(char *tab, char *str)
 	return (i);
 }
 
-char		**my_str_to_wordtab(char *str)
+char		**my_str_to_wordtab(const char *str)
 {
 	char	**tab;
 	int		i;

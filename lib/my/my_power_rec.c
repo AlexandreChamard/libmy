@@ -5,10 +5,10 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct  7 20:30:50 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:55:28 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:53:48 2017 Alexandre Chamard-bois
 */
 
-int			my_power_rec(int nb, int p)
+int			my_power_rec(const int nb, const int p)
 {
 	long	result;
 

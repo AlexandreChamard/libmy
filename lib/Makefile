@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Wed Apr 12 21:38:00 2017 Alexandre Chamard-bois
+## Last update Wed Apr 12 22:55:01 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -20,10 +20,10 @@ SRC_MY	=				clean_line.c								\
 								my_memset.c									\
 								my_nb_line.c								\
 								my_power_rec.c							\
+								my_puts.c										\
 								my_revstr.c									\
 								my_show_wordtab.c						\
 								my_showmem.c								\
-								my_showstr.c								\
 								my_sort_int_tab.c						\
 								my_split.c									\
 								my_square_root.c						\

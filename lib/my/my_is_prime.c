@@ -5,10 +5,10 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct  7 21:28:04 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:54:44 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:45:49 2017 Alexandre Chamard-bois
 */
 
-int		my_is_prime(int nb)
+int		my_is_prime(const int nb)
 {
 	int	nbr_inf;
 

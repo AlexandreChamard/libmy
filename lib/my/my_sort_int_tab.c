@@ -5,31 +5,31 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 08:22:33 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:58:47 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:26:24 2017 Alexandre Chamard-bois
 */
 
-static void	tri(int *fn, int *tab, int size)
+static void	tri(int *fn, int *array, int size)
 {
 	int				c;
 
 	if (size != 0)
 	{
-		if (*fn > *tab)
+		if (*fn > *array)
 		{
 			c = *fn;
-			*fn = *tab;
-			*tab = c;
+			*fn = *array;
+			*array = c;
 		}
-		tri(fn, tab + 1, size - 1);
+		tri(fn, array + 1, size - 1);
 	}
 }
 
-int	my_sort_int_tab(int *tab, int size)
+int	my_sort_int_tab(int *array, const int size)
 {
 	if (size != 0)
 	{
-		tri(tab, tab, size);
-		my_sort_int_tab(tab + 1, size - 1);
+		tri(array, array, size);
+		my_sort_int_tab(array + 1, size - 1);
 	}
 	return (0);
 }

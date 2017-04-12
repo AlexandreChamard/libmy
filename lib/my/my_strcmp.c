@@ -5,11 +5,17 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 18:18:14 2016 Alexandre Chamard-bois
-** Last update Tue Mar 21 17:06:45 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:37:55 2017 Alexandre Chamard-bois
 */
 
-int	my_strcmp(char *s1, char *s2)
+int	my_strcmp(const char *s1, const char *s2)
 {
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-1);
+	if (!s2)
+		return (1);
 	while (*s1 && *s1 == *s2)
 	{
 		s1++;
@@ -18,8 +24,14 @@ int	my_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-int    my_strncmp(char *s1, char *s2, int n)
+int    my_strncmp(const char *s1, const char *s2, int n)
 {
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-1);
+	if (!s2)
+		return (1);
 	while (n > 0 && *s2 && *s1 == *s2)
 	{
 		s1++;
@@ -31,8 +43,12 @@ int    my_strncmp(char *s1, char *s2, int n)
 	return (*s1 - *s2);
 }
 
-int    my_wordcmp(char *s1, char *s2)
+int    my_wordcmp(const char *s1, const char *s2)
 {
+	if (!s1 && !s2)
+		return (0);
+	if (!s1 || !s2)
+		return (1);
 	while (*s2 && *s1 == *s2)
 	{
 		s1++;

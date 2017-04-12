@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:32:11 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 20:32:26 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:48:57 2017 Alexandre Chamard-bois
 */
 
 #ifndef MIN
@@ -17,14 +17,14 @@
 #ifndef ABS
 # define ABS(x) ((x) > 0 ? (x) : -(x))
 #endif
-#ifndef IS_UP
-# define IS_UP(c) ((c) >= 'A' && (c) <= 'Z' ? 0 : 1)
+#ifndef NUM
+# define NUM(c) ((c) >= '0' && (c) <= '9' ? 1 : 0)
 #endif
-#ifndef IS_LO
-# define IS_LO(c) ((c) >= 'a' && (c) <= 'z' ? 0 : 1)
+#ifndef UPPER
+# define UPPER(c) ((c) >= 'A' && (c) <= 'Z' ? 1 : 0)
 #endif
-#ifndef IS_QUOTE
-# define IS_QUOTE(c) ((c) == '\'' ? 1 : (c) == '\"' ? 2 : (c) == '`' ? 3 : 0)
+#ifndef LOWER
+# define LOWER(c) ((c) >= 'a' && (c) <= 'z' ? 1 : 0)
 #endif
 #ifndef IS_QUOTE
 # define IS_QUOTE(c) ((c) != '\'' ? (c) != '\"' ? (c) != '`' ? 0 : 1 : 2 : 3)

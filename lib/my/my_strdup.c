@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:36:58 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:40:00 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -24,7 +24,7 @@ char		*my_strdup(const char *src)
 	return (str);
 }
 
-char		*my_strndup(const char *src, int i)
+char		*my_strndup(const char *src, const int i)
 {
 	char	*str;
 	int		size_str;
@@ -39,7 +39,7 @@ char		*my_strndup(const char *src, int i)
 	return (str);
 }
 
-char 		*my_worddup(char *str)
+char 		*my_worddup(const char *str)
 {
 	int 	i;
 	char 	*word;

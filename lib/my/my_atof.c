@@ -5,10 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Fri Feb 17 10:02:38 2017 Alexandre Chamard-bois
-** Last update Fri Apr  7 17:09:43 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 21:45:12 2017 Alexandre Chamard-bois
 */
 
-int getfl(char *str, int *rang)
+int getfl(const char *str, int *rang)
 {
   int fl;
   int   max;
@@ -23,7 +23,7 @@ int getfl(char *str, int *rang)
   return (fl);
 }
 
-double my_atof(char *str)
+double my_atof(const char *str)
 {
   double nb;
   double fl;

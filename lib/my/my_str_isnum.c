@@ -5,19 +5,21 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 20:11:24 2016 Alexandre Chamard-bois
-** Last update Tue Mar 21 20:53:27 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 22:28:28 2017 Alexandre Chamard-bois
 */
 
-int		my_str_isnum(char *str)
+#include "macro.h"
+
+int		my_str_isnum(const char *str)
 {
 	if (*str == '-')
 		str++;
-	while (*str >= '0' && *str <= '9')
+	while (NUM(*str))
 		str++;
 	if (*str == '.')
 	{
 		str++;
-		while (*str >= '0' && *str <= '9')
+		while (NUM(*str))
 			str++;
 	}
 	if (*str)

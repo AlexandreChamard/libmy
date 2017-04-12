@@ -5,12 +5,12 @@
 # Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 #
 # Started on  Fri Apr  7 15:48:22 2017 Alexandre Chamard-bois
-# Last update Fri Apr  7 17:47:17 2017 Alexandre Chamard-bois
+# Last update Wed Apr 12 21:55:11 2017 Alexandre Chamard-bois
 #
 
 CC		=	gcc
 
-RELEASE		=	false
+RELEASE		=	true
 
 OPTI_FLAG	=	-O2
 

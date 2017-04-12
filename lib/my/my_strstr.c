@@ -8,7 +8,7 @@
 ** Last update Wed Oct 12 17:39:07 2016 Alexandre Chamard-bois
 */
 
-static int comp(char *str, char *to_find)
+static int comp(const char *str, const char *to_find)
 {
   while (*to_find && *str == *to_find)
   {
@@ -20,7 +20,7 @@ static int comp(char *str, char *to_find)
   return (0);
 }
 
-char	my_strstr(char *str, char *to_find)
+char	my_strstr(const char *str, const char *to_find)
 {
   while (*str)
   {
