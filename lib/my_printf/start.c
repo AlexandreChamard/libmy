@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sun Feb  5 01:04:11 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:49:54 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 20:21:02 2017 Alexandre Chamard-bois
 */
 
 #include "myprint.h"
@@ -36,7 +36,7 @@ int my_dprintf(int i, char *str, ...)
   return (0);
 }
 
-char *my_fprintf(char *str, ...)
+char *my_sprintf(char *str, ...)
 {
   char *final;
   va_list ap;

@@ -5,41 +5,39 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Fri Apr  7 17:12:12 2017 Alexandre Chamard-bois
+## Last update Wed Apr 12 21:38:00 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
 
 AR	=	ar rc
 
-SRC_MY	=				my_getnbr.c									\
+SRC_MY	=				clean_line.c								\
 								my_atof.c										\
+								my_getnbr.c									\
 								my_is_prime.c								\
+								my_is_str.c									\
+								my_memset.c									\
+								my_nb_line.c								\
 								my_power_rec.c							\
 								my_revstr.c									\
+								my_show_wordtab.c						\
 								my_showmem.c								\
 								my_showstr.c								\
-								my_show_wordtab.c						\
 								my_sort_int_tab.c						\
+								my_split.c									\
 								my_square_root.c						\
+								my_str_isnum.c							\
+								my_str_to_wordtab.c					\
 								my_strcapitalize.c					\
 								my_strcat.c									\
 								my_strcmp.c									\
 								my_strcpy.c									\
-								my_str_isnum.c							\
-								my_strlen.c									\
-								my_strlowcase.c							\
-								my_strncat.c								\
-								my_strncmp.c								\
-								my_strncpy.c								\
-								my_strstr.c									\
-								my_str_to_wordtab.c					\
-								my_strupcase.c							\
-								my_swap.c										\
 								my_strdup.c									\
-								my_nb_line.c								\
-								my_is_str.c									\
-								my_memset.c									\
+								my_strlen.c									\
+								my_strstr.c									\
+								my_strtoc.c									\
+								my_swap.c										\
 
 SRC_PRINTF	=		myprintf.c									\
 								start.c											\

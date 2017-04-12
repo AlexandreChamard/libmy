@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sat Feb  4 23:06:20 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:48:47 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 20:20:38 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -23,7 +23,7 @@ typedef struct  s_print
 
 int my_printf(char *start, ...);
 int my_dprintf(int i, char *str, ...);
-char *my_fprintf(char *str, ...);
+char *my_sprintf(char *str, ...);
 char *my_print(char *str, va_list ap);
 int     my_printstrlen(char *str);
 char		*my_printrevstr(char *str, int start);

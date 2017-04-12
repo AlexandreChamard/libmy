@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 15:13:31 2017 Alexandre Chamard-bois
-** Last update Tue Mar 21 15:55:01 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 20:40:07 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -31,4 +31,18 @@ char		*my_strcat(char *first, char *second)
 		concat[i + j] = second[j];
 	concat[i + j] = 0;
 	return (concat);
+}
+
+char	*my_strncat(char *dest, char *src, int nb)
+{
+	int	size_dest;
+	int	i;
+
+  size_dest = 0;
+	while (dest[++size_dest]);
+	i = -1;
+	while (++i < nb)
+		dest[size_dest + i] = src[i];
+	dest[size_dest + i] = 0;
+	return (dest);
 }

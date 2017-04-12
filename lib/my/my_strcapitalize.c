@@ -5,8 +5,10 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 19:18:10 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 12:53:21 2017 Alexandre Chamard-bois
+** Last update Wed Apr 12 20:39:41 2017 Alexandre Chamard-bois
 */
+
+#include "libmy.h"
 
 static inline int a_n(char c)
 {
@@ -35,5 +37,37 @@ char	*my_strcapitalize(char *str)
 			str[i] -= 32;
 			i++;
 		}
+	return (str);
+}
+
+char	*my_strlowcase(char *str)
+{
+	int	i;
+	int	size_str;
+
+	size_str = my_strlen(str);
+	i = 0;
+	while (i < size_str)
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
+	}
+	return (str);
+}
+
+char	*my_strupcase(char *str)
+{
+	int	i;
+	int	size_str;
+
+	size_str = my_strlen(str);
+	i = 0;
+	while (i < size_str)
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+		i++;
+	}
 	return (str);
 }
