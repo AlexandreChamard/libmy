@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sat Feb  4 23:05:33 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:18:36 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 11:09:15 2017 Alexandre Chamard-bois
 */
 
 #include "myprint.h"
@@ -25,7 +25,7 @@ t_print to_be_printed[] =
 	{0, NULL}
 };
 
-char *find_func(va_list ap, char *str, char *start)
+char *find_func(va_list ap, char *str, const char *start)
 {
   int i;
 
@@ -51,7 +51,7 @@ int is_a_func(char c)
   return (0);
 }
 
-char *my_print(char *start, va_list ap)
+char *my_print(const char *start, va_list ap)
 {
   char *str;
 

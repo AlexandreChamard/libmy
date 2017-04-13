@@ -5,12 +5,12 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct  6 11:32:01 2016 Alexandre Chamard-bois
-** Last update Fri Jan 27 13:17:33 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 10:48:10 2017 Alexandre Chamard-bois
 */
 
-int		my_swap(int *a, int *b)
+int		my_swap(void **a, void **b)
 {
-	int	c;
+	void	*c;
 
 	c = *a;
 	*a = *b;

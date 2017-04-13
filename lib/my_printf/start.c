@@ -5,12 +5,12 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sun Feb  5 01:04:11 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 20:21:02 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 11:08:38 2017 Alexandre Chamard-bois
 */
 
 #include "myprint.h"
 
-int my_printf(char *str, ...)
+int my_printf(const char *str, ...)
 {
   char *final;
   va_list ap;
@@ -23,7 +23,7 @@ int my_printf(char *str, ...)
   return (0);
 }
 
-int my_dprintf(int i, char *str, ...)
+int my_dprintf(const int i, const char *str, ...)
 {
   char *final;
   va_list ap;
@@ -36,7 +36,7 @@ int my_dprintf(int i, char *str, ...)
   return (0);
 }
 
-char *my_sprintf(char *str, ...)
+char *my_sprintf(const char *str, ...)
 {
   char *final;
   va_list ap;

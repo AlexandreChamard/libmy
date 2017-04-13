@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Thu Apr 13 09:34:47 2017 Alexandre Chamard-bois
+## Last update Thu Apr 13 10:56:11 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -38,15 +38,17 @@ SRC_MY	=				clean_line.c								\
 								my_strstr.c									\
 								my_strtoc.c									\
 								my_swap.c										\
+								my_memcpy.c									\
+								my_memdup.c									\
 
 SRC_PRINTF	=		myprintf.c									\
 								start.c											\
 								str.c												\
 								nbr.c												\
 								my_realloc.c								\
-								my_strlen.c									\
 								call_function1.c						\
 								call_function2.c						\
+								len.c												\
 
 SRC_GNL			=		get_next_line.c							\
 

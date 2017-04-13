@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sat Feb  4 23:08:49 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:49:34 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 09:49:13 2017 Alexandre Chamard-bois
 */
 
 #include "myprint.h"
@@ -20,7 +20,7 @@ char *pnb(int nb, char *base, int size, char *str)
   return (str);
 }
 
-void my_putnbr_base(char *str, int nbr, char *base)
+void my_printnbr_base(char *str, int nbr, char *base)
 {
 
   str = pnb(nbr, base, my_printstrlen(base), str);
@@ -35,7 +35,7 @@ char rec_nbr(int n, char *str)
   return (0);
 }
 
-void my_put_nbr(char *str, int nbr)
+void my_printnbr(char *str, int nbr)
 {
   if (nbr < 0)
   {
@@ -53,7 +53,7 @@ char		*call_put_nbr(va_list ap, char *str)
 
 	i = my_printstrlen(str);
 	nb = va_arg(ap, int);
-	my_put_nbr(str + i, nb);
+	my_printnbr(str + i, nb);
 	str = my_printrevstr(str, i);
 	return (str);
 }

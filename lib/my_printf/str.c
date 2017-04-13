@@ -5,12 +5,12 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sun Feb  5 00:13:42 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:49:44 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 09:50:37 2017 Alexandre Chamard-bois
 */
 
 #include "myprint.h"
 
-int my_putstr(char *str, char *next)
+int my_printstr(char *str, char *next)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int my_putstr(char *str, char *next)
 	return (my_printstrlen(next));
 }
 
-int my_putchar(char *str, char c)
+int my_printchar(char *str, char c)
 {
   *str = c;
 	*(str + 1) = 0;

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:32:11 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 23:05:05 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 10:00:09 2017 Alexandre Chamard-bois
 */
 
 #ifndef MIN
@@ -25,6 +25,9 @@
 #endif
 #ifndef LOWER
 # define LOWER(c) ((c) >= 'a' && (c) <= 'z' ? 1 : 0)
+#endif
+#ifndef PRINTABLE
+# define PRINTABLE(c) ((c) >= 32 && (c) <= 126 ? 1 : 0)
 #endif
 #ifndef QUOTE
 # define QUOTE(c) ((c) != '\'' ? (c) != '\"' ? (c) != '`' ? 0 : 1 : 2 : 3)

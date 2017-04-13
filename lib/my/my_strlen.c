@@ -5,10 +5,17 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct  6 15:32:00 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:20:51 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 11:00:59 2017 Alexandre Chamard-bois
 */
 
 int		my_strlen(const char *str)
 {
-  return (*str ? my_strlen(str + 1) + 1 : 0);
+  int i;
+
+  if (!str)
+    return (0);
+  i = 0;
+  while (str[i])
+    i++;
+  return (i);
 }

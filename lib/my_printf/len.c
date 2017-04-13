@@ -5,8 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sat Feb  4 23:13:43 2017 Alexandre Chamard-bois
-** Last update Sun Feb  5 16:49:04 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 10:11:00 2017 Alexandre Chamard-bois
 */
+
+#include "myprint.h"
 
 int my_printstrlen(char *str)
 {
