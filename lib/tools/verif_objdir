@@ -1,7 +1,5 @@
 #!/bin/bash
 
-if [ -d "./obj" ];then
-    echo "obj directory already here";
-else
-    mkdir obj;
+if [ ! -d "./obj" ];then
+  mkdir obj;
 fi

@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Wed Apr 12 22:55:01 2017 Alexandre Chamard-bois
+## Last update Thu Apr 13 09:34:47 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -66,28 +66,40 @@ OBJ_GNL				=	$(patsubst %,$(ODIR)/%,$(_OBJ_GNL))
 
 NAME	=	libmy.a
 
-all		:	$(NAME)
-
+all		: p_flags $(NAME)
 $(ODIR)/%.o	:	$(SDIR_MY)/%.c
-	$(CC) $(CFLAGS)	-c -o $@ $<
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
 $(ODIR)/%.o	:	$(SDIR_PRINTF)/%.c
-	$(CC) $(CFLAGS)	-c -o $@ $<
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
 $(ODIR)/%.o	:	$(SDIR_GNL)/%.c
-	$(CC) $(CFLAGS)	-c -o $@ $<
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
+	@ echo $(GREEN) "[success]" $(WHITE)
 
 mkobj		:
-	./tools/verif_objdir
+	@ ./tools/verif_objdir
+
+p_flags		:
+	@ echo "FLAGS:" $(CYAN) $(CFLAGS) $(WHITE)
 
 $(NAME)		:	mkobj $(OBJ_MY) mkobj $(OBJ_PRINTF) mkobj $(OBJ_GNL)
-						$(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL)
-						ranlib $(NAME)
+						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL)
+						@ ranlib $(NAME)
 
 clean		:
-	rm -f $(OBJ_MY)
-	rm -f $(OBJ_PRINTF)
-	rm -f $(OBJ_GNL)
+	@ echo -n "nb obj removed: "
+	@ echo -en  $(RED)
+	@ ls $(ODIR) | wc -w
+	@ echo -en $(WHITE)
+	@ rm -f $(OBJ_MY)
+	@ rm -f $(OBJ_PRINTF)
+	@ rm -f $(OBJ_GNL)
 
 fclean		:	clean
-	rm -f $(NAME)
+	@ echo "name lib removed:"
+	@ echo -e $(RED) '\t-' $(NAME) $(WHITE)
+	@ rm -f $(NAME)
 
 re		:	fclean all
