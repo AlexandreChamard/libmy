@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Thu Apr 13 18:43:39 2017 Alexandre Chamard-bois
+## Last update Thu Apr 13 19:30:49 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -18,6 +18,9 @@ SRC_MY	=				clean_line.c								\
 								my_getnbr.c									\
 								my_is_prime.c								\
 								my_is_str.c									\
+								my_memcmp.c									\
+								my_memcpy.c									\
+								my_memdup.c									\
 								my_memset.c									\
 								my_nb_line.c								\
 								my_power_rec.c							\
@@ -39,8 +42,6 @@ SRC_MY	=				clean_line.c								\
 								my_strstr.c									\
 								my_strtoc.c									\
 								my_swap.c										\
-								my_memcpy.c									\
-								my_memdup.c									\
 
 SRC_PRINTF	=		myprintf.c									\
 								start.c											\

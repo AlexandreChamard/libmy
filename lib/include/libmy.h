@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 18:33:43 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 19:30:21 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -69,6 +69,7 @@ double	my_atof(const char *str);
 int	    my_strcmp(const char *s1, const char *s2);
 int	    my_strncmp(const char *s1, const char *s2, int n);
 int     my_wordcmp(char *s1, char *s2);
+int     my_memcmp(const void *str1, const void *str2, const int size);
 
 // CPY //
 char    *my_strcpy(char *dest, const char *src);
@@ -112,5 +113,7 @@ char    *my_strupcase(char *str);
 char    my_strstr(const char *str, const char *to_find);
 int	    my_swap(void **, void **);
 void    my_memset(void *data, const char type, const int size);
+int	    match(char *s1, char *s2);
+int	    nmatch(char *s1, char *s2);
 
 #endif
