@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 11:17:19 2017 Alexandre Chamard-bois
+** Last update Thu Apr 13 18:33:43 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -16,6 +16,22 @@
 # ifndef  READ_SIZE
 #  define   READ_SIZE (1024)
 # endif    /*!READ_SIZE*/
+#ifdef ASC
+# undef ASC
+#endif
+#define ASC 1
+#ifdef DESC
+# undef DESC
+#endif
+#define DESC -1
+
+typedef struct  s_list
+{
+  void          *data;
+  struct s_list *next;
+  struct s_list *prev;
+}               t_list;
+typedef int (*t_cmp)(void *, void *);
 
 // GETLINE //
 char    *get_next_line(const int fd);
@@ -24,6 +40,16 @@ char    *get_next_line(const int fd);
 int     my_printf(const char *str, ...);
 int     my_dprintf(const int fd, const char *str, ...);
 char    *my_sprintf(const char *str, ...);
+
+// LIST //
+t_list    *sort_list(t_list *list, int (*cmp)(void *, void *), int direction);
+t_list    *remove_node(t_list *list, void (*free_node)(void *));
+t_list    *free_list(t_list *list, void (*free_node)(void *));
+t_list    *find_node(t_list *list, void *data, t_cmp cmp);
+int       swap_node(t_list *node1, t_list *node2);
+t_list    *new_node(t_list *list, void *data);
+t_list    *goto_startlist(t_list *list);
+t_list    *goto_endlist(t_list *list);
 
 // PUT //
 void	  my_putchar(const char c);
@@ -63,7 +89,7 @@ char    *my_split(char *str, int *who, const int nb, ...);
 char    **my_str_to_wordtab(const char *str);
 void    *my_memdup(const void *ptr, const int size);
 
-// NB //
+// NBs //
 int	    my_find_prime_sup(const int nb);
 int	    my_is_prime(const int nb);
 int	    my_power_rec(const int nb, const int p);
@@ -82,8 +108,8 @@ int	    my_str_isnum(const char *str);
 int	    my_str_isprintable(const char *str);
 int	    my_str_isupper(const char *str);
 char    *my_strlowcase(char *str);
-char    my_strstr(const char *str, const char *to_find);
 char    *my_strupcase(char *str);
+char    my_strstr(const char *str, const char *to_find);
 int	    my_swap(void **, void **);
 void    my_memset(void *data, const char type, const int size);
 

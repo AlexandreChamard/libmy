@@ -4,6 +4,7 @@ if [ -d "./lib" ];then
     mkdir include;
     mkdir src;
     ln -s ../lib/my/include/libmy.h include/libmy.h;
+    ln -s ../lib/my/include/macro.h include/macro.h;
     ln -s ../lib/my/include/depend.mk include/depend.mk;
     ln -s ./lib/my/tools ./tools;
 else

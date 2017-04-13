@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Thu Apr 13 10:56:11 2017 Alexandre Chamard-bois
+## Last update Thu Apr 13 18:43:39 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -13,6 +13,7 @@ include ./include/depend.mk
 AR	=	ar rc
 
 SRC_MY	=				clean_line.c								\
+								match.c											\
 								my_atof.c										\
 								my_getnbr.c									\
 								my_is_prime.c								\
@@ -52,42 +53,54 @@ SRC_PRINTF	=		myprintf.c									\
 
 SRC_GNL			=		get_next_line.c							\
 
+SRC_LIST		=		create_list.c								\
+								movein_list.c								\
+								sort_list.c									\
+
 CFLAGS			+=	-I./include/
 
 SDIR_MY				=	my
 SDIR_PRINTF		=	my_printf
 SDIR_GNL			=	gnl
+SDIR_LIST			=	list
 
 _OBJ_MY    		=	$(SRC_MY:.c=.o)
 _OBJ_PRINTF 	=	$(SRC_PRINTF:.c=.o)
 _OBJ_GNL    	=	$(SRC_GNL:.c=.o)
+_OBJ_LIST    	=	$(SRC_LIST:.c=.o)
 
 OBJ_MY				=	$(patsubst %,$(ODIR)/%,$(_OBJ_MY))
 OBJ_PRINTF		=	$(patsubst %,$(ODIR)/%,$(_OBJ_PRINTF))
 OBJ_GNL				=	$(patsubst %,$(ODIR)/%,$(_OBJ_GNL))
+OBJ_LIST			=	$(patsubst %,$(ODIR)/%,$(_OBJ_LIST))
 
 NAME	=	libmy.a
 
-all		: p_flags $(NAME)
+all		: p_flags $(NAME) success
 $(ODIR)/%.o	:	$(SDIR_MY)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
 $(ODIR)/%.o	:	$(SDIR_PRINTF)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
+$(ODIR)/%.o	:	$(SDIR_LIST)/%.c
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
 $(ODIR)/%.o	:	$(SDIR_GNL)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
-	@ echo $(GREEN) "[success]" $(WHITE)
 
 mkobj		:
-	@ ./tools/verif_objdir
+	@ ./tools/verif_odir
 
 p_flags		:
 	@ echo "FLAGS:" $(CYAN) $(CFLAGS) $(WHITE)
 
-$(NAME)		:	mkobj $(OBJ_MY) mkobj $(OBJ_PRINTF) mkobj $(OBJ_GNL)
-						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL)
+success		:
+	@ echo $(GREEN) "[success]" $(WHITE)
+
+$(NAME)		:	mkobj $(OBJ_MY) mkobj $(OBJ_PRINTF) mkobj $(OBJ_LIST) mkobj $(OBJ_GNL)
+						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST)
 						@ ranlib $(NAME)
 
 clean		:
@@ -98,6 +111,7 @@ clean		:
 	@ rm -f $(OBJ_MY)
 	@ rm -f $(OBJ_PRINTF)
 	@ rm -f $(OBJ_GNL)
+	@ rm -f $(OBJ_LIST)
 
 fclean		:	clean
 	@ echo "name lib removed:"
