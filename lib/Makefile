@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Fri Apr 14 08:15:05 2017 Alexandre Chamard-bois
+## Last update Fri Apr 14 08:18:39 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -41,7 +41,7 @@ SRC_MY	=				clean_line.c								\
 								my_strdup.c									\
 								my_strlen.c									\
 								my_strstr.c									\
-								my_strtoc.c									\
+								my_strtok.c									\
 								my_swap.c										\
 
 SRC_PRINTF	=		myprintf.c									\

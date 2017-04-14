@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:06:42 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:31:55 2017 Alexandre Chamard-bois
+** Last update Fri Apr 14 08:18:25 2017 Alexandre Chamard-bois
 */
 
 #include <stdio.h>
@@ -23,7 +23,7 @@ int is_separator(char c, const char *separators)
   return (0);
 }
 
-char *my_strtoc(const char *str, const char *separators)
+char *my_strtok(const char *str, const char *separators)
 {
   int i;
   static int j;
