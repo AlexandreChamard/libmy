@@ -5,31 +5,39 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 08:22:33 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:26:24 2017 Alexandre Chamard-bois
+** Last update Fri Apr 14 19:45:14 2017 Alexandre Chamard-bois
 */
 
-static void	tri(int *fn, int *array, int size)
+int *sort(int *tab, int start, int end, int compare)
 {
-	int				c;
+  int tmp;
+  int min;
+  int max;
 
-	if (size != 0)
-	{
-		if (*fn > *array)
-		{
-			c = *fn;
-			*fn = *array;
-			*array = c;
-		}
-		tri(fn, array + 1, size - 1);
-	}
+  min = start;
+  max = end - 1;
+  if (end - start <= 1)
+    return (tab);
+  while (min < max)
+  {
+    while (min < max - 1 && tab[min] < compare)
+      min++;
+    while (max > min && tab[max] >= compare)
+      max--;
+    if (tab[min] != tab[max])
+    {
+      tmp = tab[min];
+      tab[min] = tab[max];
+      tab[max] = tmp;
+    }
+  }
+  sort(tab, start, min + 1, tab[start]);
+  sort(tab, min + 1, end, tab[min + 1]);
+  return (tab);
 }
 
-int	my_sort_int_tab(int *array, const int size)
+int *my_sort_int_tab(int *array, const int size)
 {
-	if (size != 0)
-	{
-		tri(array, array, size);
-		my_sort_int_tab(array + 1, size - 1);
-	}
-	return (0);
+	array = sort(array, 0, size, array[0]);
+	return (array);
 }
