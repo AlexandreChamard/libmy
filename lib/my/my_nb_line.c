@@ -5,10 +5,14 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Fri Jan 27 16:54:35 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 23:14:41 2017 Alexandre Chamard-bois
+** Last update Fri Apr 14 08:17:25 2017 Alexandre Chamard-bois
 */
 
-int my_nb_line(char **tab)
+int my_nb_line(const char **tab)
 {
-  return (*tab ? my_nb_line(tab + 1) + 1 : 0);
+  int i;
+
+  i = -1;
+  while (tab[++i]);
+  return (i);
 }

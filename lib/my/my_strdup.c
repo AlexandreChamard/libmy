@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 23:05:10 2017 Alexandre Chamard-bois
+** Last update Fri Apr 14 08:16:27 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -62,4 +62,26 @@ char 		*my_worddup(const char *str)
 	word = my_strncpy(word, str, i - 1);
 	word[i] = 0;
 	return (word);
+}
+
+char **my_tabdup(const char **tab)
+{
+	char **new_tab;
+	int i;
+	int j;
+
+	i = my_nb_line(tab);
+	if (!(new_tab = malloc(sizeof(char *) * (i + 1))))
+		return (NULL);
+	new_tab[i] = NULL;
+	while (--i >= 0)
+	{
+		j = my_strlen(tab[i]);
+		if (!(new_tab[i] = malloc(sizeof(char) * (j + 1))))
+			return (NULL);
+		new_tab[i][j] = 0;
+		while (--j >= 0)
+			new_tab[i][j] = tab[i][j];
+	}
+	return (new_tab);
 }

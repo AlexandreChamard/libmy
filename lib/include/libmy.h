@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 19:30:21 2017 Alexandre Chamard-bois
+** Last update Fri Apr 14 08:16:47 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -85,7 +85,8 @@ char    *my_concat(const int nb, ...);
 char    *my_strdup(const char *str);
 char    *my_strndup(const char *str, const int size);
 char 		*my_worddup(const char *str);
-char    *my_strtoc(const char *str, const char *c);
+char 		**my_tabdup(const char **tab);
+char    *my_strtok(const char *str, const char *c);
 char    *my_split(char *str, int *who, const int nb, ...);
 char    **my_str_to_wordtab(const char *str);
 void    *my_memdup(const void *ptr, const int size);
@@ -96,7 +97,7 @@ int	    my_is_prime(const int nb);
 int	    my_power_rec(const int nb, const int p);
 int	    my_sort_int_tab(int *array, const int size);
 int	    my_square_root(const int nb);
-int     my_nb_line(char **tab);
+int     my_nb_line(const char **tab);
 
 // STR //
 int	    my_strlen(const char *str);
@@ -115,5 +116,8 @@ int	    my_swap(void **, void **);
 void    my_memset(void *data, const char type, const int size);
 int	    match(char *s1, char *s2);
 int	    nmatch(char *s1, char *s2);
+
+// FREE //
+char    *free_tab(char **tab);
 
 #endif

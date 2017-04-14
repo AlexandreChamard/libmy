@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Thu Apr 13 19:30:49 2017 Alexandre Chamard-bois
+## Last update Fri Apr 14 08:15:05 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -15,6 +15,7 @@ AR	=	ar rc
 SRC_MY	=				clean_line.c								\
 								match.c											\
 								my_atof.c										\
+								my_free.c										\
 								my_getnbr.c									\
 								my_is_prime.c								\
 								my_is_str.c									\
