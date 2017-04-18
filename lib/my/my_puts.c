@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 22:43:24 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 10:29:46 2017 Alexandre Chamard-bois
+** Last update Sat Apr 15 11:36:18 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -26,6 +26,8 @@ void my_puts(const char *str)
 {
   if (str)
     write(1, str, my_strlen(str));
+  else
+    my_putstr("(void)");
   write(1, "\n", 1);
 }
 

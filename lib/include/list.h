@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:05:02 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 18:30:04 2017 Alexandre Chamard-bois
+** Last update Sun Apr 16 15:35:00 2017 Alexandre Chamard-bois
 */
 
 #ifdef ASC
@@ -18,7 +18,8 @@
 #endif
 #define DESC -1
 
-typedef int (*t_cmp)(void *, void *);
+typedef int   (*t_list_cmp)(void *, void *);
+typedef void  (*t_list_free)(void *);
 
 typedef struct  s_list
 {
@@ -27,11 +28,21 @@ typedef struct  s_list
   struct s_list *prev;
 }               t_list;
 
+typedef struct  s_lsort
+{
+  int           start;
+  int           end;
+  void          *compare;
+}               t_lsort;
+
 t_list    *new_node(t_list *list, void *data);
 int       swap_node(t_list *node1, t_list *node2);
-t_list    *remove_node(t_list *list, void (*free_node)(void *));
-t_list    *free_list(t_list *list, void (*free_node)(void *));
-t_list    *sort_list(t_list *list, int (*cmp)(void *, void *), int direction);
+t_list    *remove_node(t_list *list, t_list_free);
+t_list    *free_list(t_list *list, t_list_free);
+t_list    *sort_list(t_list *list, t_list_cmp, int direction);
 t_list    *goto_startlist(t_list *list);
 t_list    *goto_endlist(t_list *list);
-t_list    *find_node(t_list *list, void *data, t_cmp cmp);
+t_list    *find_node(t_list *list, void *data, t_list_cmp cmp);
+t_list    *movein_list(t_list *list, const int n);
+t_list    *goto_nlist(t_list *list, const int n);
+int       nb_node(t_list *list);

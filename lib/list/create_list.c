@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:13:22 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 14:25:40 2017 Alexandre Chamard-bois
+** Last update Sat Apr 15 15:26:25 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -25,23 +25,32 @@ t_list *new_node(t_list *list, void *data)
   return (new_node);
 }
 
+int nb_node(t_list *list)
+{
+  int i;
+
+  i = 0;
+  while (list)
+  {
+    list = list->next;
+    i++;
+  }
+  return (i);
+}
+
 int swap_node(t_list *node1, t_list *node2)
 {
-  t_list *next_tmp;
-  t_list *prev_tmp;
+  void *tmp;
 
   if (!node1 || !node2)
     return (1);
-  next_tmp = node1->next;
-  prev_tmp = node1->prev;
-  node1->next = node2->next;
-  node1->prev = node2->prev;
-  node2->next = next_tmp;
-  node2->prev = prev_tmp;
+  tmp = node1->data;
+  node1->data = node2->data;
+  node2->data = tmp;
   return (0);
 }
 
-t_list *remove_node(t_list *list, void (*free_node)(void *))
+t_list *remove_node(t_list *list, t_list_free free_node)
 {
   t_list *next;
   t_list *prev;
@@ -61,14 +70,11 @@ t_list *remove_node(t_list *list, void (*free_node)(void *))
   return (next);
 }
 
-t_list *free_list(t_list *list, void (*free_node)(void *))
+t_list *free_list(t_list *list, t_list_free free_node)
 {
   t_list *next;
 
-  if (!list)
-    return (NULL);
-  while (list->prev)
-    list = list->prev;
+  list = goto_startlist(list);
   while (list)
   {
     next = list->next;

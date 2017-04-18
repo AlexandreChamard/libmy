@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Fri Apr 14 08:16:47 2017 Alexandre Chamard-bois
+** Last update Sun Apr 16 15:34:53 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -31,7 +31,8 @@ typedef struct  s_list
   struct s_list *next;
   struct s_list *prev;
 }               t_list;
-typedef int (*t_cmp)(void *, void *);
+typedef int (*t_list_cmp)(void *, void *);
+typedef void (*t_list_free)(void *);
 
 // GETLINE //
 char    *get_next_line(const int fd);
@@ -45,11 +46,14 @@ char    *my_sprintf(const char *str, ...);
 t_list    *sort_list(t_list *list, int (*cmp)(void *, void *), int direction);
 t_list    *remove_node(t_list *list, void (*free_node)(void *));
 t_list    *free_list(t_list *list, void (*free_node)(void *));
-t_list    *find_node(t_list *list, void *data, t_cmp cmp);
+t_list    *find_node(t_list *list, void *data, t_list_cmp cmp);
+int       nb_node(t_list *list);
 int       swap_node(t_list *node1, t_list *node2);
 t_list    *new_node(t_list *list, void *data);
 t_list    *goto_startlist(t_list *list);
 t_list    *goto_endlist(t_list *list);
+t_list    *movein_list(t_list *list, const int n);
+t_list    *goto_nlist(t_list *list, const int n);
 
 // PUT //
 void	  my_putchar(const char c);
