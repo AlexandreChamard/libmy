@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Fri Apr 14 19:42:09 2017 Alexandre Chamard-bois
+** Last update Sun Apr 30 12:52:43 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -70,18 +70,32 @@ char **my_tabdup(const char **tab)
 	int i;
 	int j;
 
-	i = my_nb_line(tab);
+	i = my_nb_line(tab) - 1;
 	if (!(new_tab = malloc(sizeof(char *) * (i + 1))))
 		return (NULL);
 	new_tab[i] = NULL;
-	while (--i >= 0)
+	while (i >= 0)
 	{
-		j = my_strlen(tab[i]);
+		j = my_strlen(tab[i]) - 1;
 		if (!(new_tab[i] = malloc(sizeof(char) * (j + 1))))
 			return (NULL);
 		new_tab[i][j] = 0;
-		while (--j >= 0)
+		while (j >= 0)
+		{
 			new_tab[i][j] = tab[i][j];
+			j--;
+		}
+		i--;
 	}
 	return (new_tab);
+}
+
+void *my_memdup(const void *ptr, const int size)
+{
+  void *new_ptr;
+
+  if (!(new_ptr = malloc(sizeof(size))))
+    return (NULL);
+  my_memcpy(new_ptr, ptr, size);
+  return (new_ptr);
 }

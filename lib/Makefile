@@ -5,23 +5,24 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Fri Apr 14 08:18:39 2017 Alexandre Chamard-bois
+## Last update Sun Apr 30 15:53:41 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
 
 AR	=	ar rc
 
-SRC_MY	=				clean_line.c								\
+SRC_MY	=				cat.c												\
+								clean_line.c								\
+								cmp.c												\
+								cpy.c												\
+								dup.c												\
 								match.c											\
 								my_atof.c										\
 								my_free.c										\
 								my_getnbr.c									\
 								my_is_prime.c								\
 								my_is_str.c									\
-								my_memcmp.c									\
-								my_memcpy.c									\
-								my_memdup.c									\
 								my_memset.c									\
 								my_nb_line.c								\
 								my_power_rec.c							\
@@ -35,10 +36,6 @@ SRC_MY	=				clean_line.c								\
 								my_str_isnum.c							\
 								my_str_to_wordtab.c					\
 								my_strcapitalize.c					\
-								my_strcat.c									\
-								my_strcmp.c									\
-								my_strcpy.c									\
-								my_strdup.c									\
 								my_strlen.c									\
 								my_strstr.c									\
 								my_strtok.c									\
@@ -59,26 +56,37 @@ SRC_LIST		=		create_list.c								\
 								movein_list.c								\
 								sort_list.c									\
 
+SRC_SCAN		=		scan.c											\
+								scan_str.c									\
+								scan_nb.c										\
+								scan_nb_base.c							\
+								scan_nb_format.c						\
+								get_format.c								\
+
 CFLAGS			+=	-I./include/
 
 SDIR_MY				=	my
 SDIR_PRINTF		=	my_printf
 SDIR_GNL			=	gnl
 SDIR_LIST			=	list
+SDIR_SCAN			=	scanf
 
 _OBJ_MY    		=	$(SRC_MY:.c=.o)
 _OBJ_PRINTF 	=	$(SRC_PRINTF:.c=.o)
 _OBJ_GNL    	=	$(SRC_GNL:.c=.o)
 _OBJ_LIST    	=	$(SRC_LIST:.c=.o)
+_OBJ_SCAN    	=	$(SRC_SCAN:.c=.o)
 
 OBJ_MY				=	$(patsubst %,$(ODIR)/%,$(_OBJ_MY))
 OBJ_PRINTF		=	$(patsubst %,$(ODIR)/%,$(_OBJ_PRINTF))
 OBJ_GNL				=	$(patsubst %,$(ODIR)/%,$(_OBJ_GNL))
 OBJ_LIST			=	$(patsubst %,$(ODIR)/%,$(_OBJ_LIST))
+OBJ_SCAN			=	$(patsubst %,$(ODIR)/%,$(_OBJ_SCAN))
 
 NAME	=	libmy.a
 
-all		: p_flags $(NAME) success
+all		: p_flags mkobj $(NAME) success
+
 $(ODIR)/%.o	:	$(SDIR_MY)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
@@ -91,6 +99,9 @@ $(ODIR)/%.o	:	$(SDIR_LIST)/%.c
 $(ODIR)/%.o	:	$(SDIR_GNL)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
+$(ODIR)/%.o	:	$(SDIR_SCAN)/%.c
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
 
 mkobj		:
 	@ ./tools/verif_odir
@@ -101,8 +112,8 @@ p_flags		:
 success		:
 	@ echo $(GREEN) "[success]" $(WHITE)
 
-$(NAME)		:	mkobj $(OBJ_MY) mkobj $(OBJ_PRINTF) mkobj $(OBJ_LIST) mkobj $(OBJ_GNL)
-						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST)
+$(NAME)		:	$(OBJ_MY) $(OBJ_PRINTF) $(OBJ_LIST) $(OBJ_GNL) $(OBJ_SCAN)
+						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST) $(OBJ_SCAN)
 						@ ranlib $(NAME)
 
 clean		:
@@ -110,10 +121,7 @@ clean		:
 	@ echo -en  $(RED)
 	@ ls $(ODIR) | wc -w
 	@ echo -en $(WHITE)
-	@ rm -f $(OBJ_MY)
-	@ rm -f $(OBJ_PRINTF)
-	@ rm -f $(OBJ_GNL)
-	@ rm -f $(OBJ_LIST)
+	@ rm -rf $(ODIR)/
 
 fclean		:	clean
 	@ echo "name lib removed:"

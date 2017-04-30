@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 21:33:43 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:26:46 2017 Alexandre Chamard-bois
+** Last update Sun Apr 30 12:54:44 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -20,11 +20,12 @@ char **init_separator(va_list ap, int nb)
 
   if (!(sep = malloc(sizeof(char *) * (nb + 1))))
     return (NULL);
-  i = -1;
-  while (++i < nb)
+  i = 0;
+  while (i < nb)
   {
     str = va_arg(ap, char *);
     sep[i] = my_strdup(str);
+    i++;
   }
   sep[i] = NULL;
   va_end(ap);
@@ -35,10 +36,13 @@ int verif_separator(char *str, char **separator)
 {
   int i;
 
-  i = -1;
-  while (separator[++i])
+  i = 0;
+  while (separator[i])
+  {
     if (!my_wordcmp(str, separator[i]))
       return (i);
+    i++;
+  }
   return (-1);
 }
 
@@ -55,8 +59,9 @@ char *my_split(char *str, int *who, const int nb, ...)
     return (NULL);
   if (!str || !*str)
     return (NULL);
-  i = -1;
-  while (str[++i] && (whoo = verif_separator(str + i, separator)) == -1);
+  i = 0;
+  while (str[i] && (whoo = verif_separator(str + i, separator)) == -1)
+    i++;
   split = my_strndup(str, i);
   if (str[i])
     my_strcpy(str, str + i + my_strlen(separator[whoo]));

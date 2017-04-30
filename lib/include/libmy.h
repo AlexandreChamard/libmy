@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Sun Apr 16 15:34:53 2017 Alexandre Chamard-bois
+** Last update Sun Apr 30 12:49:04 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -13,9 +13,6 @@
 #ifndef LIBMY_H_
 # define LIBMY_H_
 
-# ifndef  READ_SIZE
-#  define   READ_SIZE (1024)
-# endif    /*!READ_SIZE*/
 #ifdef ASC
 # undef ASC
 #endif
@@ -36,6 +33,9 @@ typedef void (*t_list_free)(void *);
 
 // GETLINE //
 char    *get_next_line(const int fd);
+
+// SCANF //
+int my_scanf(char *format, ...);
 
 // PRINTF //
 int     my_printf(const char *str, ...);
@@ -111,6 +111,7 @@ char    *my_strcapitalize(char *str);
 int	    my_str_isalpha(const char *str);
 int	    my_str_islower(const char *str);
 int	    my_str_isnum(const char *str);
+int     my_is_float(const char *str);
 int	    my_str_isprintable(const char *str);
 int	    my_str_isupper(const char *str);
 char    *my_strlowcase(char *str);

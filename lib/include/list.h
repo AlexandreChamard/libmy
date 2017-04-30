@@ -5,8 +5,11 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:05:02 2017 Alexandre Chamard-bois
-** Last update Sun Apr 16 15:35:00 2017 Alexandre Chamard-bois
+** Last update Fri Apr 28 14:13:58 2017 Alexandre Chamard-bois
 */
+
+#ifndef LIST_H_
+# define LIST_H_
 
 #ifdef ASC
 # undef ASC
@@ -46,3 +49,5 @@ t_list    *find_node(t_list *list, void *data, t_list_cmp cmp);
 t_list    *movein_list(t_list *list, const int n);
 t_list    *goto_nlist(t_list *list, const int n);
 int       nb_node(t_list *list);
+
+#endif

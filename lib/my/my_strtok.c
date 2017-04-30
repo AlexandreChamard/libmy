@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:06:42 2017 Alexandre Chamard-bois
-** Last update Fri Apr 14 08:18:25 2017 Alexandre Chamard-bois
+** Last update Sun Apr 30 12:58:10 2017 Alexandre Chamard-bois
 */
 
 #include <stdio.h>
@@ -16,10 +16,13 @@ int is_separator(char c, const char *separators)
 {
   int i;
 
-  i = -1;
-  while (separators[++i])
+  i = 0;
+  while (separators[i])
+  {
     if (c == separators[i])
       return (1);
+    i++;
+  }
   return (0);
 }
 

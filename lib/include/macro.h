@@ -5,8 +5,11 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:32:11 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 10:00:09 2017 Alexandre Chamard-bois
+** Last update Fri Apr 28 15:39:24 2017 Alexandre Chamard-bois
 */
+
+#ifndef MACRO_H_
+# define MACRO_H_
 
 #ifndef MIN
 # define MIN(x, y) ((x) < (y) ? (x) : (y))
@@ -34,4 +37,12 @@
 #endif
 #ifndef SPACE
 # define SPACE(c) ((c) == ' ' || (c) == '\t' ? 1 : 0)
+#endif
+#ifndef BLANK
+# define BLANK(c) ((c) == ' ' || (c) == '\t' || (c) == '\n' ? 1 : 0)
+#endif
+#ifndef READ_SIZE
+# define READ_SIZE  1024
+#endif
+
 #endif
