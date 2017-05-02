@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:49:04 2017 Alexandre Chamard-bois
+** Last update Mon May  1 10:50:22 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -105,6 +105,8 @@ int     my_nb_line(const char **tab);
 
 // STR //
 int	    my_strlen(const char *str);
+int	    nb_word(const char *str);
+int	    size_word(const char *str);
 char    *clean_line(char *str);
 char    *my_revstr(char *str);
 char    *my_strcapitalize(char *str);

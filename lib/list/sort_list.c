@@ -5,26 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 14:31:19 2017 Alexandre Chamard-bois
-** Last update Sun Apr 16 23:59:29 2017 Alexandre Chamard-bois
+** Last update Tue May  2 19:08:32 2017 Alexandre Chamard-bois
 */
 
-#include <stdio.h>
 #include "list.h"
-
-void print_list(t_list *list, int start, int end)
-{
-  int i;
-
-  i = 0;
-  printf("nb nodes: %d  [%d] -> [%d]\n", end - start , start, end);
-  while (i <= end - start)
-  {
-    printf("%d ", *(int*)list->data);
-    list = list->next;
-    i++;
-  }
-  printf("\n");
-}
 
 static int sort(t_list *list, t_lsort stsort, t_list_cmp cmp, int dir)
 {
@@ -34,7 +18,6 @@ static int sort(t_list *list, t_lsort stsort, t_list_cmp cmp, int dir)
 
   if (stsort.end - stsort.start <= 1)
     return (0);
-  print_list(list, stsort.start, stsort.end);
   lmin = list;
   lmax = movein_list(list, stsort.end - stsort.start - 1);
   min = stsort.start;
@@ -50,8 +33,6 @@ static int sort(t_list *list, t_lsort stsort, t_list_cmp cmp, int dir)
     if (lmin != lmax)
       swap_node(lmin, lmax);
   }
-  print_list(list, stsort.start, stsort.end);
-  printf("\n");
   sort(list, (t_lsort){stsort.start, min, list->data}, cmp, dir);
   sort(lmax->next, (t_lsort){min + 1, stsort.end, lmax->next->data}, cmp, dir);
   return (0);

@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Sun Apr 30 15:53:41 2017 Alexandre Chamard-bois
+## Last update Sun Apr 30 18:54:24 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -106,6 +106,9 @@ $(ODIR)/%.o	:	$(SDIR_SCAN)/%.c
 mkobj		:
 	@ ./tools/verif_odir
 
+verifodir		:
+	@ ./tools/verif_odir
+
 p_flags		:
 	@ echo "FLAGS:" $(CYAN) $(CFLAGS) $(WHITE)
 
@@ -116,12 +119,12 @@ $(NAME)		:	$(OBJ_MY) $(OBJ_PRINTF) $(OBJ_LIST) $(OBJ_GNL) $(OBJ_SCAN)
 						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST) $(OBJ_SCAN)
 						@ ranlib $(NAME)
 
-clean		:
+clean		: verifodir
 	@ echo -n "nb obj removed: "
 	@ echo -en  $(RED)
 	@ ls $(ODIR) | wc -w
 	@ echo -en $(WHITE)
-	@ rm -rf $(ODIR)/
+	@ rm -rf $(ODIR)
 
 fclean		:	clean
 	@ echo "name lib removed:"
