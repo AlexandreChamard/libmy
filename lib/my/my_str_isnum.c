@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 20:11:24 2016 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:48:05 2017 Alexandre Chamard-bois
+** Last update Mon May  8 11:27:40 2017 Alexandre Chamard-bois
 */
 
 #include "macro.h"
@@ -17,8 +17,8 @@ int		my_str_isnum(const char *str)
 	while (NUM(*str))
 		str++;
 	if (*str)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int my_is_float(const char *str)
@@ -34,6 +34,6 @@ int my_is_float(const char *str)
 			str++;
 	}
 	if (*str)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }

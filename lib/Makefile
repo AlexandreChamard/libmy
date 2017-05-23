@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Sun Apr 30 18:54:24 2017 Alexandre Chamard-bois
+## Last update Mon May 22 15:05:52 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -63,6 +63,9 @@ SRC_SCAN		=		scan.c											\
 								scan_nb_format.c						\
 								get_format.c								\
 
+SRC_GARBAGE	=		init_garbage.c							\
+								my_malloc.c									\
+
 CFLAGS			+=	-I./include/
 
 SDIR_MY				=	my
@@ -70,18 +73,21 @@ SDIR_PRINTF		=	my_printf
 SDIR_GNL			=	gnl
 SDIR_LIST			=	list
 SDIR_SCAN			=	scanf
+SDIR_GARBAGE	=	garbage
 
 _OBJ_MY    		=	$(SRC_MY:.c=.o)
 _OBJ_PRINTF 	=	$(SRC_PRINTF:.c=.o)
 _OBJ_GNL    	=	$(SRC_GNL:.c=.o)
 _OBJ_LIST    	=	$(SRC_LIST:.c=.o)
 _OBJ_SCAN    	=	$(SRC_SCAN:.c=.o)
+_OBJ_GARBAGE  =	$(SRC_GARBAGE:.c=.o)
 
 OBJ_MY				=	$(patsubst %,$(ODIR)/%,$(_OBJ_MY))
 OBJ_PRINTF		=	$(patsubst %,$(ODIR)/%,$(_OBJ_PRINTF))
 OBJ_GNL				=	$(patsubst %,$(ODIR)/%,$(_OBJ_GNL))
 OBJ_LIST			=	$(patsubst %,$(ODIR)/%,$(_OBJ_LIST))
 OBJ_SCAN			=	$(patsubst %,$(ODIR)/%,$(_OBJ_SCAN))
+OBJ_GARBAGE		=	$(patsubst %,$(ODIR)/%,$(_OBJ_GARBAGE))
 
 NAME	=	libmy.a
 
@@ -102,6 +108,9 @@ $(ODIR)/%.o	:	$(SDIR_GNL)/%.c
 $(ODIR)/%.o	:	$(SDIR_SCAN)/%.c
 	@ $(CC) $(CFLAGS)	-c -o $@ $<
 	@ echo $<
+$(ODIR)/%.o	:	$(SDIR_GARBAGE)/%.c
+	@ $(CC) $(CFLAGS)	-c -o $@ $<
+	@ echo $<
 
 mkobj		:
 	@ ./tools/verif_odir
@@ -115,8 +124,8 @@ p_flags		:
 success		:
 	@ echo $(GREEN) "[success]" $(WHITE)
 
-$(NAME)		:	$(OBJ_MY) $(OBJ_PRINTF) $(OBJ_LIST) $(OBJ_GNL) $(OBJ_SCAN)
-						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST) $(OBJ_SCAN)
+$(NAME)		:	$(OBJ_MY) $(OBJ_PRINTF) $(OBJ_LIST) $(OBJ_GNL) $(OBJ_SCAN) $(OBJ_GARBAGE)
+						@ $(AR) $(NAME) $(OBJ_MY) $(OBJ_PRINTF) $(OBJ_GNL) $(OBJ_LIST) $(OBJ_SCAN) $(OBJ_GARBAGE)
 						@ ranlib $(NAME)
 
 clean		: verifodir

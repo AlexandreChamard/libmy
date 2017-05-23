@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:13:24 2017 Alexandre Chamard-bois
-** Last update Sun Apr 30 15:52:41 2017 Alexandre Chamard-bois
+** Last update Mon May  8 12:03:59 2017 Alexandre Chamard-bois
 */
 
 #include <stdarg.h>
@@ -29,10 +29,16 @@ typedef struct  s_format
   va_list       ap;
 }               t_format;
 
+typedef struct   s_option
+{
+  int             nb_max;
+  char            without[42];
+}                 t_option;
+
 typedef struct  s_scan
 {
   char          *patern;
-  int           (*func)(t_format*, t_buffer *buffer);
+  int           (*func)(t_format*, t_buffer *buffer, t_option option);
 }               t_scan;
 
 int my_scanf(char *format, ...);
@@ -44,15 +50,15 @@ int _getfloat(t_buffer *buffer, double *nb);
 int _scan_nbrbase(t_format *format, t_buffer *buff, const char *base, int len);
 
 /* SCAN */
-int _scan_int(t_format *format, t_buffer *buffer);
-int _scan_octal(t_format *format, t_buffer *buffer);
-int _scan_hexa1(t_format *format, t_buffer *buffer);
-int _scan_hexa2(t_format *format, t_buffer *buffer);
-int _scan_bin(t_format *format, t_buffer *buffer);
-int _scan_long(t_format *format, t_buffer *buffer);
-int _scan_longlong(t_format *format, t_buffer *buffer);
-int _scan_float(t_format *format, t_buffer *buffer);
-int _scan_str(t_format *format, t_buffer *buffer);
-int _scan_char(t_format *format, t_buffer *buffer);
+int _scan_int(t_format *format, t_buffer *buffer, t_option option);
+int _scan_octal(t_format *format, t_buffer *buffer, t_option option);
+int _scan_hexa1(t_format *format, t_buffer *buffer, t_option option);
+int _scan_hexa2(t_format *format, t_buffer *buffer, t_option option);
+int _scan_bin(t_format *format, t_buffer *buffer, t_option option);
+int _scan_long(t_format *format, t_buffer *buffer, t_option option);
+int _scan_longlong(t_format *format, t_buffer *buffer, t_option option);
+int _scan_float(t_format *format, t_buffer *buffer, t_option option);
+int _scan_str(t_format *format, t_buffer *buffer, t_option option);
+int _scan_char(t_format *format, t_buffer *buffer, t_option option);
 
 #endif

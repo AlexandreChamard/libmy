@@ -5,17 +5,18 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Apr 30 14:38:32 2017 Alexandre Chamard-bois
-** Last update Sun Apr 30 15:35:43 2017 Alexandre Chamard-bois
+** Last update Mon May  8 11:58:43 2017 Alexandre Chamard-bois
 */
 
 #include <stdarg.h>
 #include "scan.h"
 
-int _scan_float(t_format *format, t_buffer *buff)
+int _scan_float(t_format *format, t_buffer *buff, t_option option)
 {
   float *res;
   double nb;
 
+  (void) option;
   if (!(res = va_arg(format->ap, float *)))
     return (0);
   if (_getfloat(buff, &nb))
@@ -24,11 +25,12 @@ int _scan_float(t_format *format, t_buffer *buff)
   return (0);
 }
 
-int _scan_int(t_format *format, t_buffer *buff)
+int _scan_int(t_format *format, t_buffer *buff, t_option option)
 {
   int *res;
   long long nb;
 
+  (void) option;
   if (!(res = va_arg(format->ap, int *)))
     return (0);
   if (_getll(buff, &nb))
@@ -37,11 +39,12 @@ int _scan_int(t_format *format, t_buffer *buff)
   return (0);
 }
 
-int _scan_long(t_format *format, t_buffer *buff)
+int _scan_long(t_format *format, t_buffer *buff, t_option option)
 {
   long *res;
   long long nb;
 
+  (void) option;
   if (!(res = va_arg(format->ap, long *)))
     return (0);
   if (_getll(buff, &nb))
@@ -50,11 +53,12 @@ int _scan_long(t_format *format, t_buffer *buff)
   return (0);
 }
 
-int _scan_longlong(t_format *format, t_buffer *buff)
+int _scan_longlong(t_format *format, t_buffer *buff, t_option option)
 {
   long long *res;
   long long nb;
 
+  (void) option;
   if (!(res = va_arg(format->ap, long long *)))
     return (0);
   if (_getll(buff, &nb))
