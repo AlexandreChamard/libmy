@@ -5,15 +5,19 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 11:13:48 2017 Alexandre Chamard-bois
-** Last update Wed Mar  1 19:21:05 2017 Alexandre Chamard-bois
+** Last update Tue May 23 10:31:39 2017 Alexandre Chamard-bois
 */
 
-int w(int *un, int *deux, int trois)
+int my_swapp(void **a, void **b)
 {
-  return ((*deux = *un) && (*un = trois));
+  void *c;
+
+  return (c = *a, *a = *b, *b = c, 0);
 }
 
 int my_swap(int *a, int *b)
 {
-  return (w(a, b, *b) && 0);
+  int c;
+
+  return (c = *a, *a = *b, *b = c, 0);
 }

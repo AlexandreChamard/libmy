@@ -5,11 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 20:57:51 2017 Alexandre Chamard-bois
-** Last update Tue Jan  3 20:58:39 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:16:47 2017 Alexandre Chamard-bois
 */
 
-char	*my_strupcase(char *str)
+char	*my_strupcase(char *s)
 {
-  *str >= 'A' && *str <= 'Z' ? (*str += 32) && my_strupcase(str + 1) : 0;
-  return (str);
+  return (*s >= 'A' && *s <= 'Z' ? (*s += 32) && my_strupcase(s + 1) : 0, s);
 }

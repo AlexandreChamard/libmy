@@ -5,11 +5,11 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 09:40:07 2017 Alexandre Chamard-bois
-** Last update Wed Jan  4 12:47:32 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:28:54 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
-#include "../lib_cheat.h"
+#include "lib_cheat.h"
 
 int put(char c)
 {

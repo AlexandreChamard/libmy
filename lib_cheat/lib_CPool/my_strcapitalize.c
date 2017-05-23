@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 23:09:42 2017 Alexandre Chamard-bois
-** Last update Tue Jan  3 12:10:51 2017 Alexandre Chamard-bois
+** Last update Tue May 23 10:57:42 2017 Alexandre Chamard-bois
 */
 
 int n(char c)
@@ -15,7 +15,7 @@ int n(char c)
 
 int an(char c)
 {
-  return (c >= 'A' && c <= 'z' ? c > 'Z' ? c >= 'a' ? 2 : 0 : 3 : n(c));
+  return (c >= 'A' && c <= 'z' ? (c > 'Z' ? (c >= 'a' ? 2 : 0) : 3) : n(c));
 }
 
 void capitalize(char *s, int n)
@@ -26,6 +26,5 @@ void capitalize(char *s, int n)
 
 char	*my_strcapitalize(char *str)
 {
-  capitalize(str, 0);
-  return (str);
+  return (capitalize(str, 0), str);
 }

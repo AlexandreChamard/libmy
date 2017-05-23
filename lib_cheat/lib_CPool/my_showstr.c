@@ -5,24 +5,21 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 10:58:27 2017 Alexandre Chamard-bois
-** Last update Wed Jan  4 13:02:35 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:29:21 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
-#include "lib_cheat.h"
 
-int pt(char c)
-{
-  return (write(1, &c, 1));
-}
+void my_putchar(char c);
+int my_putnbr_base(int nb, char *base);
 
 int bas(int c)
 {
-  return (pt('\\') && my_putnbr_base(c, "0123456789abcdef"));
+  return (my_putchar('\\'), my_putnbr_base(c, "0123456789abcdef"));
 }
 
 int   my_showstr(char *str)
 {
-  *str ? *str > 31 && *str < 127 ? pt(*str) : bas(*str) : 0;
+  *str ? (*str > 31 && *str < 127 ? my_putchar(*str) : bas(*str)) : 0;
   return (*str ? my_showstr(str + 1) : 0);
 }

@@ -5,15 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 12:17:27 2017 Alexandre Chamard-bois
-** Last update Tue Jan  3 12:22:24 2017 Alexandre Chamard-bois
+** Last update Tue May 23 10:14:12 2017 Alexandre Chamard-bois
 */
-
-int powa(int nb, int power, int result)
-{
-  return (power > 0 ? powa(nb, power - 1, result * nb) : result);
-}
 
 int   my_power_rec(int nb, int power)
 {
-  return (powa(nb, power - 1, nb));
+  return (power > 0 ? my_power_rec(nb, power - 1) * nb : 1);
 }

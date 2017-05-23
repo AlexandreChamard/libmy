@@ -5,11 +5,11 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 13:45:14 2017 Alexandre Chamard-bois
-** Last update Tue Mar 28 17:04:34 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:30:31 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
-#include "../lib_cheat.h"
+#include "lib_cheat.h"
 
 char *lw(char *s, int i, int last)
 {

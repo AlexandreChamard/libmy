@@ -5,11 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 17:52:34 2017 Alexandre Chamard-bois
-** Last update Tue Jan  3 17:54:45 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:12:42 2017 Alexandre Chamard-bois
 */
 
-char  *my_strncpy(char *dest, char *src, int n)
+char  *my_strncpy(char *d, char *s, int n)
 {
-  *src && n > 0 ? (*dest = *src) && my_strncpy(dest + 1, src + 1, n - 1) : 0;
-  return (dest);
+  return (*s && n > 0 ? *d = *s, my_strncpy(d + 1, s + 1, n - 1) : 0, d);
 }

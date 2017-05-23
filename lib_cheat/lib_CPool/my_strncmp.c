@@ -5,12 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 19:39:02 2017 Alexandre Chamard-bois
-** Last update Tue Jan  3 19:44:05 2017 Alexandre Chamard-bois
+** Last update Tue May 23 11:05:09 2017 Alexandre Chamard-bois
 */
 
-#define CMP my_strncmp
-
-int 		CMP(char *s, char *d, int n)
+int 		my_strncmp(char *s, char *d, int n)
 {
-	return ((*s - *d) && n > 0 ? *s - *d : *s == 0 ? 0 : CMP(++s, ++d, --n));
+	return ((*s - *d) && n > 0 ? *s - *d : *s ? my_strncmp(++s, ++d, --n) : 0);
 }
