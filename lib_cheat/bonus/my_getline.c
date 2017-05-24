@@ -5,10 +5,9 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed May 24 09:04:58 2017 Alexandre Chamard-bois
-** Last update Wed May 24 10:32:31 2017 Alexandre Chamard-bois
+** Last update Wed May 24 10:43:10 2017 Alexandre Chamard-bois
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -20,7 +19,7 @@ char *r(char *n, char *s, char c, int i)
 
 char *g(int f, char *s, char c, int l)
 {
-  l = (read(f, &c, 1) && c != '\n' && c != EOF ? l + 1 : 0);
+  l = (read(f, &c, 1) > 0 && c != '\n' ? l + 1 : 0);
   return (l ? g(f, r(malloc(l + 2), s, c, 0), 0, l) : *s || c == '\n' ? s : 0);
 }
 

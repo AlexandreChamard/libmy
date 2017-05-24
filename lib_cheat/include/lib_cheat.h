@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 11:08:38 2017 Alexandre Chamard-bois
-** Last update Tue May 23 11:45:01 2017 Alexandre Chamard-bois
+** Last update Wed May 24 10:42:54 2017 Alexandre Chamard-bois
 */
 
 #ifndef   LIB_CHEAT_H
@@ -20,6 +20,7 @@
 // BONUS //
 
 char  **my_str_to_wordtab(char *str);                         /* 4 6 */
+char  *my_getline(int fd);                                    /* 3 5 */
 int   nb_line(char *str);                                     /* 1 1 */
 int   nb_word(char *str, int i, int n);   /*(str, 0, 0)*/     /* 1 2 */
 int   size_line(char *str);                                   /* 1 1 */
