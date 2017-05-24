@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 11:13:48 2017 Alexandre Chamard-bois
-** Last update Tue May 23 14:00:30 2017 Alexandre Chamard-bois
+** Last update Wed May 24 10:45:19 2017 Alexandre Chamard-bois
 */
 
 int my_swapp(void **a, void **b)
@@ -17,7 +17,5 @@ int my_swapp(void **a, void **b)
 
 int my_swap(int *a, int *b)
 {
-  int c;
-
-  return (c = *a, *a = *b, *b = c, 0);
+  return (*a = *b + *a - (*b = *a), 0);
 }
