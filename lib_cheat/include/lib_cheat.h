@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 11:08:38 2017 Alexandre Chamard-bois
-** Last update Wed May 24 10:42:54 2017 Alexandre Chamard-bois
+** Last update Wed May 24 10:47:37 2017 Alexandre Chamard-bois
 */
 
 #ifndef   LIB_CHEAT_H
@@ -27,7 +27,7 @@ int   size_line(char *str);                                   /* 1 1 */
 int   size_word(char *str);                                   /* 1 1 */
 int   my_swapp(int *a, int *b);                               /* 1 3 */
 
-// DONE //                                                    /* 50 62 */
+// DONE //                                                    /* 49 59 */
 
 int   my_find_prime_sup(int nb);                              /* 1 1 */
 int   my_getnbr(char *str);                                   /* 2 2 */
@@ -58,7 +58,7 @@ int   my_strncmp(char *s1, char *s2, int n);                  /* 1 1 */
 char  *my_strcpy(char *dest, char *src);                      /* 1 1 */
 char  *my_strstr(char *str, char *to_find);                   /* 2 4 */
 char  *my_strupcase(char *str);                               /* 1 1 */
-int   my_swap(int *a, int *b);                                /* 1 3 */
+int   my_swap(int *a, int *b);                                /* 1 1 */
 
 // NEVER //
 
