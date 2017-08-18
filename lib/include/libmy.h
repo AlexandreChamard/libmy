@@ -5,29 +5,33 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Mon May 22 15:17:37 2017 Alexandre Chamard-bois
+** Last update Fri Aug 18 23:12:27 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
-#include "list.h"
 #include "macro.h"
 
 #ifndef LIBMY_H_
 # define LIBMY_H_
 
-extern t_clist *g_garbage;
-
-// GARBAGE //
-void free_garbage(char *key);
-void free_garbage_all();
-void *my_malloc(size_t size, char *key);
-void my_free(void *data, char *key);
+# define NEXT(c, l) ((l)->next != (c) ? (l)->next : NULL)
+# define PREV(c, l) ((l)->prev != (c) ? (l)->prev : NULL)
+typedef struct  s_clist
+{
+  void          *ptr;
+  struct s_clist *next;
+  struct s_clist *prev;
+}               t_clist;
+typedef int   (*t_list_cmp)(void *, void *);
+typedef void  (*t_list_free)(void *);
 
 // GETLINE //
 char    *get_next_line(const int fd);
+char    *my_getline(const int fd);
 
 // SCANF //
 int my_scanf(char *format, ...);
+int my_dscanf(const int fd, char *format, ...);
 
 // PRINTF //
 int     my_printf(const char *str, ...);
@@ -71,7 +75,7 @@ char 		*my_worddup(const char *str);
 char 		**my_tabdup(const char **tab);
 char    *my_strtok(const char *str, const char *c);
 char    *my_split(char *str, int *who, const int nb, ...);
-char    **my_str_to_wordtab(const char *str);
+char    **my_str_to_wordtab(const char *str, const char *sep);
 void    *my_memdup(const void *ptr, const int size);
 
 // NBs //
@@ -84,8 +88,8 @@ int     my_nb_line(const char **tab);
 
 // STR //
 int	    my_strlen(const char *str);
-int	    nb_word(const char *str);
-int	    size_word(const char *str);
+int	    nb_word(const char *str, const char *sep);
+int	    size_word(const char *str, const char *sep);
 char    *clean_line(char *str);
 char    *my_revstr(char *str);
 char    *my_strcapitalize(char *str);

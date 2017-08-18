@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sat Apr 29 17:00:19 2017 Alexandre Chamard-bois
-** Last update Mon May  8 12:28:24 2017 Alexandre Chamard-bois
+** Last update Fri Aug 18 22:44:59 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -91,23 +91,22 @@ int calc_decal(char *format, char *str)
   return (i);
 }
 
-int get_format(t_buffer *buff, t_format *format)
+int get_format(const int fd, t_buffer *buff, t_format *format)
 {
   int find;
   int size;
   t_option option;
 
-  if (is_blank(buff) == -1)
+  if (is_blank(fd, buff) == -1)
     return (-1);
   find = 0;
   option = pars_option(format->str, &size);
-  my_printf("%d [%s]\n", option.nb_max, option.without);
-  if (!POS(buff) && reset_buff(buff))
+  if (!POS(buff) && reset_buff(fd, buff))
     return (-1);
   while (g_scan[find].patern &&
-        my_wordcmp(format->str + size, g_scan[find].patern))
+        my_wordcmp(format->str + size + 1, g_scan[find].patern))
     find++;
-  if (!g_scan[find].patern || g_scan[find].func(format, buff, option))
+  if (!g_scan[find].patern || g_scan[find].func(fd, format, buff, option))
     return (-1);
   return (calc_decal(format->str, g_scan[find].patern));
 }

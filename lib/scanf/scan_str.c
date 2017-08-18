@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Apr 30 13:00:59 2017 Alexandre Chamard-bois
-** Last update Mon May  8 12:29:28 2017 Alexandre Chamard-bois
+** Last update Fri Aug 18 22:25:43 2017 Alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -27,7 +27,8 @@ int verif_option(char c, int act, t_option option)
   return (1);
 }
 
-int _scan_str(t_format *format, t_buffer *buff, t_option option)
+int
+_scan_str(const int fd, t_format *format, t_buffer *buff, t_option option)
 {
   char *str;
   int i;
@@ -40,18 +41,20 @@ int _scan_str(t_format *format, t_buffer *buff, t_option option)
   while (!BLANK(POS(buff)) && verif_option(POS(buff), i, option))
   {
     str[i] = POS(buff);
-    if (INCR(buff))
+    if (INCR(fd, buff))
       return (1);
     i++;
   }
   return (0);
 }
 
-int _scan_char(t_format *format, t_buffer *buff, t_option option)
+int
+_scan_char(const int fd, t_format *format, t_buffer *buff, t_option option)
 {
   char *c;
 
   (void) option;
+  (void) fd;
   if (!(c = va_arg(format->ap, char *)))
     return (0);
   *c = POS(buff);

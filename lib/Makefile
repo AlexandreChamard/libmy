@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Mon May 22 15:05:52 2017 Alexandre Chamard-bois
+## Last update Fri Aug 18 23:14:42 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -51,20 +51,22 @@ SRC_PRINTF	=		myprintf.c									\
 								len.c												\
 
 SRC_GNL			=		get_next_line.c							\
+								my_getline.c								\
 
 SRC_LIST		=		create_list.c								\
 								movein_list.c								\
 								sort_list.c									\
 
-SRC_SCAN		=		scan.c											\
+SRC_SCAN		=		my_scanf.c									\
+								scan.c											\
 								scan_str.c									\
 								scan_nb.c										\
 								scan_nb_base.c							\
 								scan_nb_format.c						\
 								get_format.c								\
 
-SRC_GARBAGE	=		init_garbage.c							\
-								my_malloc.c									\
+# SRC_GARBAGE	=		init_garbage.c							\
+# 								my_malloc.c									\
 
 CFLAGS			+=	-I./include/
 
