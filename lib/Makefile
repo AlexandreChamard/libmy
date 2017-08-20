@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Sun Aug 20 20:30:56 2017 Alexandre Chamard-bois
+## Last update Sun Aug 20 22:08:10 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -19,6 +19,7 @@ SRC_MY	=				cat.c												\
 								dup.c												\
 								match.c											\
 								my_atof.c										\
+								my_fd.c											\
 								my_free_tab.c								\
 								my_getnbr.c									\
 								my_is_prime.c								\
