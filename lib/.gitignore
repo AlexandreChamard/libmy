@@ -1,4 +1,7 @@
+## temporary
 *.o
+*.a
+
+## testing
 test.c
 a.out
-*.a
