@@ -5,15 +5,13 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 18:30:08 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 19:04:54 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:13:52 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "garbage.h"
-
-t_glist *g_garbage = NULL;
 
 int _gopen(t_glist **li)
 {

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:13:22 2017 Alexandre Chamard-bois
-** Last update Mon May 22 18:22:26 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:24:58 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -15,7 +15,7 @@ t_clist *new_node(t_clist *list, void *data)
 {
   t_clist *new_node;
 
-  if (!(new_node = malloc(sizeof(t_clist))))
+  if (!(new_node = my_malloc(sizeof(t_clist))))
     return (list);
   new_node->ptr = data;
   if (list)
@@ -67,19 +67,19 @@ t_clist *remove_node(t_clist *list, t_list_free free_node)
   if (list->next == list)
   {
     free_node(list->ptr);
-    free(list);
+    my_free(list);
     return (NULL);
   }
   next = list->next;
   free_node(list->ptr);
   if (list == list->next)
   {
-    free(list);
+    my_free(list);
     return (NULL);
   }
   list->prev->next = list->next;
   list->next->prev = list->prev;
-  free(list);
+  my_free(list);
   return (next);
 }
 
@@ -93,7 +93,7 @@ t_clist *free_list(t_clist *list, t_list_free free_node)
   {
     next = list->next;
     free_node(list->ptr);
-    free(list);
+    my_free(list);
     list = next;
   }
   return (NULL);

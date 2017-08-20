@@ -17,7 +17,7 @@ static char *my_realloc(char *str, int *size, int plus)
   int i;
 
   *size += plus;
-  if (!(n_str = malloc(sizeof(char) * (*size + READ_SIZE + 1))))
+  if (!(n_str = my_malloc(sizeof(char) * (*size + READ_SIZE + 1))))
     return (NULL);
   i = 0;
   while (i < *size)
@@ -26,7 +26,7 @@ static char *my_realloc(char *str, int *size, int plus)
     i++;
   }
   n_str[i] = 0;
-  free(str);
+  my_free(str);
   return (n_str);
 }
 
@@ -59,7 +59,7 @@ char *create_save(char *str, int *size, int plus)
     *size = 0;
   if (!*size)
     return (NULL);
-  if (!(save = malloc(sizeof(char) * (*size + READ_SIZE + 1))))
+  if (!(save = my_malloc(sizeof(char) * (*size + READ_SIZE + 1))))
     return (NULL);
   i = 0;
   while (i < *size)
@@ -75,12 +75,12 @@ char *create_save(char *str, int *size, int plus)
   return (save);
 }
 
-void free_func(char *save, char *str)
+void my_free_func(char *save, char *str)
 {
   if (save != NULL)
-    free(save);
+    my_free(save);
   if (str != NULL)
-    free(str);
+    my_free(str);
 }
 
 char *get_next_line(const int fd)
@@ -95,13 +95,13 @@ char *get_next_line(const int fd)
   end = s;
   i = 0;
   if (str == NULL)
-    if ((str = malloc(sizeof(char) * (READ_SIZE + 1))) == NULL)
+    if ((str = my_malloc(sizeof(char) * (READ_SIZE + 1))) == NULL)
       return (NULL);
   while ((s = verif(str, end)) < 0 && (i = read(fd, str + end, READ_SIZE)) > 0)
     str = my_realloc(str, &end, i);
   if (!str || ((s < 0 && i <= 0) && !str[0]))
   {
-    free_func(save, str);
+    my_free_func(save, str);
     s = 0;
     return (NULL);
   }

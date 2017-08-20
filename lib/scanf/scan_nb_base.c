@@ -9,7 +9,7 @@
 */
 
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 int
 _scan_octal(t_myfd *fd, t_format *format, t_option option)

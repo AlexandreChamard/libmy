@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Tue May 30 09:25:19 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 19:38:33 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:22:51 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -21,7 +21,7 @@ static char *my_realloc(char *str, char buff[READ_SIZE])
     new_str = my_strdup(buff);
   my_memset(buff, 0, READ_SIZE + 1);
   if (str)
-    free(str);
+    my_free(str);
   return (new_str);
 }
 
@@ -66,7 +66,7 @@ char *my_getline(const int fd)
   if (!len && !*buff)
   {
     if (str)
-      free(str);
+      my_free(str);
     return (NULL);
   }
   return (str);

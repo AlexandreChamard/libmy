@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 15:13:31 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 11:06:17 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:07:06 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ char		*my_strcat(const char *first, const char *second)
 
 	i = my_strlen(first);
 	j = my_strlen(second);
-	if (!(concat = malloc(sizeof(char) * (i + j + 1))))
+	if (!(concat = my_malloc(sizeof(char) * (i + j + 1))))
 		return (NULL);
 	if (first)
 		my_strcpy(concat, first);
@@ -66,7 +66,7 @@ char	*my_strncat(const char *first, const char *second, const int n)
 	j = -1;
 	while (second[++j]);
 	j = MIN(j, n);
-	if (!(concat = malloc(sizeof(char) * (i + j + 1))))
+	if (!(concat = my_malloc(sizeof(char) * (i + j + 1))))
 		return (NULL);
 	i = -1;
 	while (first[++i])

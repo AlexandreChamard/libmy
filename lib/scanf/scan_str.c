@@ -9,7 +9,7 @@
 */
 
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 int verif_option(char c, int act, t_option option)
 {

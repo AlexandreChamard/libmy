@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:52:43 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:20:43 2017 Alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -16,7 +16,7 @@ char		*my_strdup(const char *src)
 	int		size_str;
 
 	size_str = my_strlen(src);
-	if (!(str = malloc(sizeof(char) * (size_str + 1))))
+	if (!(str = my_malloc(sizeof(char) * (size_str + 1))))
 		return (NULL);
 	if (!str)
 		return (NULL);
@@ -30,7 +30,7 @@ char		*my_strndup(const char *src, const int i)
 	int		size_str;
 
 	size_str = MIN(my_strlen(src), i);
-	if (!(str = malloc(sizeof(char) * (size_str + 1))))
+	if (!(str = my_malloc(sizeof(char) * (size_str + 1))))
 		return (NULL);
 	if (!str)
 		return (NULL);
@@ -57,7 +57,7 @@ char 		*my_worddup(const char *str)
 	}
 	if (!i)
 		return (NULL);
-	if (!(word = malloc(sizeof(char) * (i + 1))))
+	if (!(word = my_malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	word = my_strncpy(word, str, i - 1);
 	word[i] = 0;
@@ -71,13 +71,13 @@ char **my_tabdup(const char **tab)
 	int j;
 
 	i = my_nb_line(tab) - 1;
-	if (!(new_tab = malloc(sizeof(char *) * (i + 1))))
+	if (!(new_tab = my_malloc(sizeof(char *) * (i + 1))))
 		return (NULL);
 	new_tab[i] = NULL;
 	while (i >= 0)
 	{
 		j = my_strlen(tab[i]) - 1;
-		if (!(new_tab[i] = malloc(sizeof(char) * (j + 1))))
+		if (!(new_tab[i] = my_malloc(sizeof(char) * (j + 1))))
 			return (NULL);
 		new_tab[i][j] = 0;
 		while (j >= 0)
@@ -94,7 +94,7 @@ void *my_memdup(const void *ptr, const int size)
 {
   void *new_ptr;
 
-  if (!(new_ptr = malloc(sizeof(size))))
+  if (!(new_ptr = my_malloc(sizeof(size))))
     return (NULL);
   my_memcpy(new_ptr, ptr, size);
   return (new_ptr);

@@ -9,7 +9,7 @@
 */
 
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 int
 _getll(t_myfd *fd, long long *nb)

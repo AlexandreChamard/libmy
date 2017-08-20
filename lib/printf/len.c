@@ -8,7 +8,7 @@
 ** Last update Thu Apr 13 10:11:00 2017 Alexandre Chamard-bois
 */
 
-#include "myprint.h"
+#include "printf.h"
 
 int my_printstrlen(char *str)
 {

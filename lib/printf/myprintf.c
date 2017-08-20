@@ -5,10 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sat Feb  4 23:05:33 2017 Alexandre Chamard-bois
-** Last update Thu Apr 13 11:09:15 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:32:18 2017 Alexandre Chamard-bois
 */
 
-#include "myprint.h"
+#include "printf.h"
 
 t_print to_be_printed[] =
 {
@@ -55,7 +55,7 @@ char *my_print(const char *start, va_list ap)
 {
   char *str;
 
-  str = my_realloc(NULL, 1024);
+  str = _printf_realloc(NULL, 1024);
   while (*start)
   {
     if (*start == '%' && is_a_func(*(start + 1)))

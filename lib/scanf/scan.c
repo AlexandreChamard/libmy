@@ -5,18 +5,18 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:15:40 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 17:55:39 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:55:24 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 int reset_buff(t_myfd *fd)
 {
   fd->buffer.i = 0;
-  my_memset(fd->buffer.str, 0, READ_SIZE + 1);
+  my_memset(fd->buffer.str, 0, READ_SIZE);
   if (read(fd->fd, fd->buffer.str, READ_SIZE) <= 0)
   {
     fd->end = 1;
@@ -32,6 +32,8 @@ int is_blank(t_myfd *fd)
   while (BLANK(POS(fd->buffer)))
   {
     if (INCR(fd))
+      return (-1);
+    if (!POS(fd->buffer) && reset_buff(fd))
       return (-1);
   }
   return (1);

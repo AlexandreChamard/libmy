@@ -10,7 +10,7 @@
 
 #include <unistd.h>
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 t_scan g_scan[] =
 {

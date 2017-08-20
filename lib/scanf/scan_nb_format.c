@@ -9,7 +9,7 @@
 */
 
 #include <stdarg.h>
-#include "scan.h"
+#include "scanf.h"
 
 int
 _scan_float(t_myfd *fd, t_format *format, t_option option)

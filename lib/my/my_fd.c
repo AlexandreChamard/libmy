@@ -5,21 +5,21 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 17:20:38 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 17:20:55 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:26:00 2017 Alexandre Chamard-bois
 */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "libmy.h"
-#include "scan.h"
+#include "scanf.h"
 
 t_myfd*
 my_fd_from_fd(const int fd)
 {
   t_myfd *myfd;
 
-  if (!(myfd = malloc(sizeof(t_myfd))))
+  if (!(myfd = my_malloc(sizeof(t_myfd))))
     return (NULL);
   my_memset(myfd, 0, sizeof(t_myfd));
   myfd->fd = fd;
@@ -34,7 +34,7 @@ my_open(const char *name, const int right)
 
   if ((fd = open(name, right)) == -1)
     return (NULL);
-  if (!(myfd = malloc(sizeof(t_myfd))))
+  if (!(myfd = my_malloc(sizeof(t_myfd))))
     return (NULL);
   my_memset(myfd, 0, sizeof(t_myfd));
   myfd->fd = fd;
@@ -48,5 +48,5 @@ my_close(t_myfd *myfd)
     return ;
   if (myfd->fd > 2)
     close(myfd->fd);
-  free(myfd);
+  my_free(myfd);
 }

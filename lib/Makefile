@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Sun Aug 20 19:22:50 2017 Alexandre Chamard-bois
+## Last update Sun Aug 20 20:30:56 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -45,7 +45,7 @@ SRC_PRINTF	=		myprintf.c									\
 								start.c											\
 								str.c												\
 								nbr.c												\
-								my_realloc.c								\
+								printf_realloc.c						\
 								call_function1.c						\
 								call_function2.c						\
 								len.c												\
@@ -65,7 +65,8 @@ SRC_SCAN		=		my_scanf.c									\
 								scan_nb_format.c						\
 								get_format.c								\
 
-SRC_GARBAGE	=		gopen.c											\
+SRC_GARBAGE	=		init_garbage.c							\
+								gopen.c											\
 								gclose.c										\
 								my_malloc.c									\
 								my_free.c										\
@@ -73,7 +74,7 @@ SRC_GARBAGE	=		gopen.c											\
 CFLAGS			+=	-I./include/
 
 SDIR_MY				=	my
-SDIR_PRINTF		=	my_printf
+SDIR_PRINTF		=	printf
 SDIR_GNL			=	gnl
 SDIR_LIST			=	list
 SDIR_SCAN			=	scanf

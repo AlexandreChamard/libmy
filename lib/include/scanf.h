@@ -1,5 +1,5 @@
 /*
-** scan.h for ok in /home/alexandre/Documents/lib/my_lib/lib/include/
+** scanf.h for ok in /home/alexandre/Documents/lib/my_lib/lib/include/
 **
 ** Made by Alexandre Chamard-bois
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>

@@ -8,7 +8,7 @@
 ** Last update Thu Apr 13 09:50:23 2017 Alexandre Chamard-bois
 */
 
-#include "myprint.h"
+#include "printf.h"
 
 char *put_char(char *str, char c)
 {

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 21:33:43 2017 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:54:44 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:17:57 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -18,7 +18,7 @@ char **init_separator(va_list ap, int nb)
   char *str;
   char **sep;
 
-  if (!(sep = malloc(sizeof(char *) * (nb + 1))))
+  if (!(sep = my_malloc(sizeof(char *) * (nb + 1))))
     return (NULL);
   i = 0;
   while (i < nb)

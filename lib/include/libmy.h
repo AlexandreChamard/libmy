@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 18:45:25 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 20:39:26 2017 Alexandre Chamard-bois
 */
 
 #ifndef LIBMY_H_
@@ -31,6 +31,12 @@ typedef void  (*t_list_free)(void *);
 // GETLINE //
 char    *get_next_line(const int fd);
 char    *my_getline(const int fd);
+
+// FD //
+t_myfd  *my_fd_from_fd(const int fd);
+t_myfd  *my_open(const char *name, const int right);
+void    my_close(t_myfd *myfd);
+
 
 // SCANF //
 int my_scanf(char *format, ...);
@@ -111,6 +117,6 @@ int	    match(char *s1, char *s2);
 int	    nmatch(char *s1, char *s2);
 
 // FREE //
-char    *free_tab(char **tab);
+char    **free_tab(char **tab);
 
 #endif
