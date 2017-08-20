@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Fri Aug 18 23:14:42 2017 Alexandre Chamard-bois
+## Last update Sun Aug 20 19:22:50 2017 Alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -19,7 +19,7 @@ SRC_MY	=				cat.c												\
 								dup.c												\
 								match.c											\
 								my_atof.c										\
-								my_free.c										\
+								my_free_tab.c								\
 								my_getnbr.c									\
 								my_is_prime.c								\
 								my_is_str.c									\
@@ -65,8 +65,10 @@ SRC_SCAN		=		my_scanf.c									\
 								scan_nb_format.c						\
 								get_format.c								\
 
-# SRC_GARBAGE	=		init_garbage.c							\
-# 								my_malloc.c									\
+SRC_GARBAGE	=		gopen.c											\
+								gclose.c										\
+								my_malloc.c									\
+								my_free.c										\
 
 CFLAGS			+=	-I./include/
 

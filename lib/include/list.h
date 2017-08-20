@@ -5,8 +5,10 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:05:02 2017 Alexandre Chamard-bois
-** Last update Mon May 22 10:04:01 2017 Alexandre Chamard-bois
+** Last update Wed May 24 21:07:59 2017 Alexandre Chamard-bois
 */
+
+#include "libmy.h"
 
 #ifndef LIST_H_
 # define LIST_H_
@@ -20,19 +22,6 @@
 # undef DESC
 #endif
 #define DESC -1
-
-#define NEXT(c, l) ((l)->next != (c) ? (l)->next : NULL)
-#define PREV(c, l) ((l)->prev != (c) ? (l)->prev : NULL)
-
-typedef int   (*t_list_cmp)(void *, void *);
-typedef void  (*t_list_free)(void *);
-
-typedef struct  s_clist
-{
-  void          *ptr;
-  struct s_clist *next;
-  struct s_clist *prev;
-}               t_clist;
 
 typedef struct  s_lsort
 {

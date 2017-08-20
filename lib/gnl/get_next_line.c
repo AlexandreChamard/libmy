@@ -8,17 +8,16 @@
 ** Last update Sat Mar  4 15:16:21 2017 Alexandre Chamard-bois
 */
 
-#include <stdlib.h>
 #include <unistd.h>
-#include "get_next_line.h"
+#include "libmy.h"
 
-char *my_realoc(char *str, int *size, int plus)
+static char *my_realloc(char *str, int *size, int plus)
 {
   char *n_str;
   int i;
 
   *size += plus;
-  if ((n_str = malloc(sizeof(char) * (*size + READ_SIZE + 1))) == NULL)
+  if (!(n_str = malloc(sizeof(char) * (*size + READ_SIZE + 1))))
     return (NULL);
   i = 0;
   while (i < *size)
@@ -58,9 +57,9 @@ char *create_save(char *str, int *size, int plus)
   *size -= plus + 1;
   if (*size < 0)
     *size = 0;
-  if (*size == 0)
+  if (!*size)
     return (NULL);
-  if ((save = malloc(sizeof(char) * (*size + READ_SIZE + 1))) == NULL)
+  if (!(save = malloc(sizeof(char) * (*size + READ_SIZE + 1))))
     return (NULL);
   i = 0;
   while (i < *size)
@@ -99,8 +98,8 @@ char *get_next_line(const int fd)
     if ((str = malloc(sizeof(char) * (READ_SIZE + 1))) == NULL)
       return (NULL);
   while ((s = verif(str, end)) < 0 && (i = read(fd, str + end, READ_SIZE)) > 0)
-    str = my_realoc(str, &end, i);
-  if (str == NULL || ((s < 0 && i <= 0) && str[0] == 0))
+    str = my_realloc(str, &end, i);
+  if (!str || ((s < 0 && i <= 0) && !str[0]))
   {
     free_func(save, str);
     s = 0;

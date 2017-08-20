@@ -5,17 +5,20 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:19:13 2017 Alexandre Chamard-bois
-** Last update Fri Aug 18 23:12:27 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 18:45:25 2017 Alexandre Chamard-bois
 */
-
-#include <stdlib.h>
-#include "macro.h"
 
 #ifndef LIBMY_H_
 # define LIBMY_H_
 
+#include <stdlib.h>
+#include "myfd.h"
+#include "garbage.h"
+#include "macro.h"
+
 # define NEXT(c, l) ((l)->next != (c) ? (l)->next : NULL)
 # define PREV(c, l) ((l)->prev != (c) ? (l)->prev : NULL)
+
 typedef struct  s_clist
 {
   void          *ptr;
@@ -31,7 +34,7 @@ char    *my_getline(const int fd);
 
 // SCANF //
 int my_scanf(char *format, ...);
-int my_dscanf(const int fd, char *format, ...);
+int my_dscanf(t_myfd *fd, char *format, ...);
 
 // PRINTF //
 int     my_printf(const char *str, ...);

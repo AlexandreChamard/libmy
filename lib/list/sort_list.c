@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 14:31:19 2017 Alexandre Chamard-bois
-** Last update Mon May 22 10:02:35 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 18:09:46 2017 Alexandre Chamard-bois
 */
 
 #include "list.h"
@@ -34,7 +34,7 @@
 //       swap_node(lmin, lmax);
 //   }
 //   sort(list, (t_lsort){stsort.start, min, list->data}, cmp, dir);
-//   sort(lmax->next, (t_lsort){min + 1, stsort.end, lmax->next->data}, cmp, dir);
+//sort(lmax->next, (t_lsort){min + 1, stsort.end, lmax->next->data}, cmp, dir);
 //   return (0);
 // }
 //

@@ -26,7 +26,7 @@ static void sort(int *tab, int start, int end)
   {
     if (end - start == 1 && tab[start] > tab[end])
       swp(tab + start, tab + end);
-    return;
+    return ;
   }
   mid = start + 1;
   max = end;

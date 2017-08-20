@@ -5,14 +5,14 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Apr 30 14:38:32 2017 Alexandre Chamard-bois
-** Last update Fri Aug 18 22:40:28 2017 Alexandre Chamard-bois
+** Last update Sun Aug 20 18:00:51 2017 Alexandre Chamard-bois
 */
 
 #include <stdarg.h>
 #include "scan.h"
 
 int
-_scan_float(const int fd, t_format *format, t_buffer *buff, t_option option)
+_scan_float(t_myfd *fd, t_format *format, t_option option)
 {
   float *res;
   double nb;
@@ -20,14 +20,14 @@ _scan_float(const int fd, t_format *format, t_buffer *buff, t_option option)
   (void) option;
   if (!(res = va_arg(format->ap, float *)))
     return (0);
-  if (_getfloat(fd, buff, &nb))
+  if (_getfloat(fd, &nb))
     return (1);
   *res = (float) nb;
   return (0);
 }
 
 int
-_scan_int(const int fd, t_format *format, t_buffer *buff, t_option option)
+_scan_int(t_myfd *fd, t_format *format, t_option option)
 {
   int *res;
   long long nb;
@@ -35,14 +35,14 @@ _scan_int(const int fd, t_format *format, t_buffer *buff, t_option option)
   (void) option;
   if (!(res = va_arg(format->ap, int *)))
     return (0);
-  if (_getll(fd, buff, &nb))
+  if (_getll(fd, &nb))
     return (1);
   *res = (int) nb;
   return (0);
 }
 
 int
-_scan_long(const int fd, t_format *format, t_buffer *buff, t_option option)
+_scan_long(t_myfd *fd, t_format *format, t_option option)
 {
   long *res;
   long long nb;
@@ -50,14 +50,14 @@ _scan_long(const int fd, t_format *format, t_buffer *buff, t_option option)
   (void) option;
   if (!(res = va_arg(format->ap, long *)))
     return (0);
-  if (_getll(fd, buff, &nb))
+  if (_getll(fd, &nb))
     return (1);
   *res = (long) nb;
   return (0);
 }
 
 int
-_scan_longlong(const int fd, t_format *format, t_buffer *buff, t_option option)
+_scan_longlong(t_myfd *fd, t_format *format, t_option option)
 {
   long long *res;
   long long nb;
@@ -65,7 +65,7 @@ _scan_longlong(const int fd, t_format *format, t_buffer *buff, t_option option)
   (void) option;
   if (!(res = va_arg(format->ap, long long *)))
     return (0);
-  if (_getll(fd, buff, &nb))
+  if (_getll(fd, &nb))
     return (1);
   *res = nb;
   return (0);
