@@ -1,6 +1,10 @@
-## temporary
+## binary
 *.o
 *.a
+
+## temporary
+*~
+*#
 
 ## testing
 test.c

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:13:24 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 18:01:05 2017 Alexandre Chamard-bois
+** Last update Mon Aug 21 12:44:57 2017 Alexandre Chamard-bois
 */
 
 #ifndef SCAN_H_
@@ -15,8 +15,9 @@
 #include "myfd.h"
 #include "macro.h"
 
-#define POS(buffer)   (buffer.str[buffer.i])
-#define INCR(fd)  (++fd->buffer.i == READ_SIZE && reset_buff(fd) ? 1 : 0)
+# define POS(buffer)   (buffer.str[buffer.i])
+# define V_BUFF(i, fd)  ((i) == READ_SIZE || !POS(fd->buffer) ? 1 : 0)
+# define INCR(fd)  (V_BUFF(++fd->buffer.i, fd) && reset_buff(fd) ? 1 : 0)
 
 typedef struct  s_format
 {

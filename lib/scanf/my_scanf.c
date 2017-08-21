@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Aug 18 22:00:08 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:43:53 2017 Alexandre Chamard-bois
+** Last update Mon Aug 21 12:41:14 2017 Alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -17,6 +17,8 @@ int my_scanf(char *str, ...)
   t_format format;
   int nb_read;
 
+  if (fd.end)
+    return (-1);
   format.str = str;
   va_start(format.ap, str);
   nb_read = scan(&fd, format);
