@@ -5,24 +5,21 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 08:49:28 2017 Alexandre Chamard-bois
-** Last update Thu Feb 23 13:53:40 2017 Alexandre Chamard-bois
+** Last update Wed Oct  4 14:21:29 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 
-int p(char *s, int i)
-{
-  return (*s ? p(s + 1, i + 1) : i);
-}
+int my_strlen(char *str);
 
-char *c(char *dest, char *src, char *str, int n)
+char *conc(char *des, char *src, char *str, int n)
 {
-  *src && n > 0 ? (*str = *src) && c(dest, src + 1, str + 1, n - 1) : 0;
-  *dest ? (*str = *dest) && c(dest + 1, src, str + 1, n) : 0;
-  return (str + (*(str + p(dest, 0) + p(src, 0)) = 0));
+  *src && n > 0 ? *str = *src, conc(des, src + 1, str + 1, n - 1) : 0;
+  *des ? *str = *des, conc(des + 1, src, str + 1, n) : 0;
+  return (*(str + my_strlen(des) + my_strlen(src)) = 0, str);
 }
 
 char *my_strncat(char *dest, char *src, int nb)
 {
-  return (c(dest, src, malloc(p(dest, 0) + p(src, 0) + 1), nb));
+  return (conc(dest, src, malloc(my_strlen(dest) + my_strlen(src) + 1), nb));
 }

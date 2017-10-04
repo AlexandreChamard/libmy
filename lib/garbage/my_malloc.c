@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Mon May 22 13:44:21 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 19:13:12 2017 Alexandre Chamard-bois
+** Last update Wed Aug 23 10:46:32 2017 Alexandre Chamard-bois
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include "macro.h"
 #include "garbage.h"
 
-void *_my_malloc(const size_t size, t_glist *li)
+void *_my_malloc(size_t size, t_glist *li)
 {
   t_garbage *new_node;
 
@@ -40,7 +40,7 @@ void *_my_malloc(const size_t size, t_glist *li)
   return (new_node->ptr);
 }
 
-void *my_malloc(const size_t size)
+void *my_malloc(size_t size)
 {
   return (_my_malloc(size, g_garbage));
 }
@@ -60,7 +60,7 @@ t_garbage *replace_node(t_garbage *node, t_garbage *new_node)
 }
 
 /* pas fini */
-void *my_realloc(void *ptr, const size_t size)
+void *my_realloc(void *ptr, size_t size)
 {
   t_garbage *node;
   t_garbage *new_node;

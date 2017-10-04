@@ -5,12 +5,12 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 19:46:10 2017 Alexandre Chamard-bois
-** Last update Mon Jan  2 21:50:36 2017 Alexandre Chamard-bois
+** Last update Wed Oct  4 14:29:44 2017 Alexandre Chamard-bois
 */
 
 int number(char *s, int nb)
 {
-  return (*s >= '0' && *s <= '9' ? number(s + 1, nb * 10 + *s - 48) : nb);
+  return (*s < '0' || *s > '9' ? nb : number(s + 1, nb * 10 + *s - '0'));
 }
 
 int my_getnbr(char *str)

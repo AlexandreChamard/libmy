@@ -5,21 +5,21 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 08:19:51 2017 Alexandre Chamard-bois
-** Last update Tue May 23 11:42:43 2017 Alexandre Chamard-bois
+** Last update Wed Oct  4 14:22:13 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 
 int my_strlen(char *str);
 
-char *conc(char *dest, char *src, char *str)
+char *conc(char *des, char *src, char *str)
 {
-  *src ? (*str = *src) && conc(dest, src + 1, str + 1) : 0;
-  *dest ? (*str = *dest) && conc(dest + 1, src, str + 1) : 0;
-  return (str + (*(str + my_strlen(dest) + my_strlen(src)) = 0));
+  *src ? *str = *src, conc(des, src + 1, str + 1) : 0;
+  *des ? *str = *des, conc(des + 1, src, str + 1) : 0;
+  return (*(str + my_strlen(des) + my_strlen(src)) = 0, str);
 }
 
 char *my_strcat(char *dest, char *src)
 {
-  return (conc(dest, src, malloc((my_strlen(dest) + my_strlen(src) + 1))));
+  return (conc(dest, src, malloc(my_strlen(dest) + my_strlen(src) + 1)));
 }

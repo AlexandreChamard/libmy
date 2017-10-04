@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Mon May 22 11:00:03 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 19:09:21 2017 Alexandre Chamard-bois
+** Last update Wed Aug 23 10:46:36 2017 Alexandre Chamard-bois
 */
 
 #ifndef GARBAGE_H_

@@ -1,0 +1,15 @@
+## binary
+*.o
+*.a
+
+## temporary
+*~
+*#
+
+## testing
+lib/test.c
+lib/a.out
+lib_cheat/main.c
+lib_cheat/a.out
+
+lib2.0

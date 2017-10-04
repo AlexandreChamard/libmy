@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sat Apr 29 17:00:19 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 17:57:31 2017 Alexandre Chamard-bois
+** Last update Tue Aug 22 14:54:09 2017 Alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -53,9 +53,6 @@ int pars_without(char *format, int *i, char without[42])
     j++;
     (*i)++;
   }
-  (*i)++;
-  if (!format[*i])
-    return (1);
   return (0);
 }
 
@@ -69,8 +66,8 @@ t_option pars_option(char *format, int *i)
   {
     if (NUM(format[*i]))
       option.nb_max = pars_num(format, i);
-    else if (format[*i] == '[' && pars_without(format, i, option.without))
-      return (option);
+    else if (format[*i] == '[')
+      pars_without(format, i, option.without);
     (*i)++;
   }
   (*i)--;
@@ -85,9 +82,12 @@ int calc_decal(char *format, char *str)
   while (NUM(format[i]))
     i++;
   if (format[i] == '[')
+  {
     while (format[i] != ']')
       i++;
-    i += my_strlen(str);
+     i++;
+  }
+  i += my_strlen(str);
   return (i);
 }
 

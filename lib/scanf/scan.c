@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:15:40 2017 Alexandre Chamard-bois
-** Last update Mon Aug 21 12:45:42 2017 Alexandre Chamard-bois
+** Last update Tue Aug 22 14:51:53 2017 Alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -62,6 +62,7 @@ int scan(t_myfd *fd, t_format format)
   nb_read = 0;
   while (*format.str)
   {
+    my_printf("act:%c\n", *format.str);
     if (*format.str == '%')
     {
       if ((ret = get_format(fd, &format)) > 0)
