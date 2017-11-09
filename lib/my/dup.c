@@ -5,7 +5,7 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Wed Oct 12 10:27:02 2016 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:20:43 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:38:27 2017 alexandre Chamard-bois
 */
 #include <stdlib.h>
 #include "libmy.h"
@@ -13,29 +13,30 @@
 char		*my_strdup(const char *src)
 {
 	char	*str;
-	int		size_str;
 
-	size_str = my_strlen(src);
-	if (!(str = my_malloc(sizeof(char) * (size_str + 1))))
+	if (!src) {
 		return (NULL);
-	if (!str)
+	}
+	str = my_malloc(sizeof(char) * (my_strlen(src) + 1));
+	if (!str) {
 		return (NULL);
+	}
 	my_strcpy(str, src);
 	return (str);
 }
 
-char		*my_strndup(const char *src, const int i)
+char		*my_strndup(const char *src, size_t i)
 {
 	char	*str;
-	int		size_str;
+	size_t	size_str;
 
+	if (!src) {
+		return (NULL);
+	}
 	size_str = MIN(my_strlen(src), i);
 	if (!(str = my_malloc(sizeof(char) * (size_str + 1))))
 		return (NULL);
-	if (!str)
-		return (NULL);
 	my_strncpy(str, src, size_str);
-	str[size_str] = 0;
 	return (str);
 }
 
@@ -90,7 +91,7 @@ char **my_tabdup(const char **tab)
 	return (new_tab);
 }
 
-void *my_memdup(const void *ptr, const int size)
+void *my_memdup(const void *ptr, size_t size)
 {
   void *new_ptr;
 

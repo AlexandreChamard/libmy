@@ -5,42 +5,36 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 17:54:52 2017 Alexandre Chamard-bois
-** Last update Mon May 22 10:02:28 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 12:01:58 2017 alexandre Chamard-bois
 */
 
 #include <stdlib.h>
 #include "list.h"
 
-t_clist *movein_list(t_clist *list, const int n)
+clist_t *movein_list(clist_t *list, const int n)
 {
-  int i;
+	int i = 0;
 
-  i = 0;
-  if (n > 0)
-  {
-    while (i < n)
-    {
-      list = list->next;
-      i++;
-    }
-  }
-  else if (n < 0)
-  {
-    while (i > n)
-    {
-      list = list->prev;
-      i--;
-    }
-  }
-  return (list);
+	if (n > 0) {
+		while (i < n) {
+			list = list->next;
+			i++;
+		}
+	} else if (n < 0) {
+		while (i > n) {
+			list = list->prev;
+			i--;
+		}
+	}
+	return (list);
 }
 
-t_clist *find_node(t_clist *list, void *data, t_list_cmp cmp)
+clist_t *find_node(clist_t *list, void *data, list_cmp_t cmp)
 {
-  t_clist *tmp;
+	clist_t *tmp = list;
 
-  tmp = list;
-  while (cmp(tmp->ptr, data))
-    tmp = NEXT(list, tmp);
-  return (list);
+	while (cmp(tmp->ptr, data)) {
+		tmp = NEXT(list, tmp);
+	}
+	return (list);
 }

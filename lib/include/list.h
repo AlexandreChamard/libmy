@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Thu Apr 13 13:05:02 2017 Alexandre Chamard-bois
-** Last update Wed May 24 21:07:59 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:01:32 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -14,29 +14,26 @@
 # define LIST_H_
 
 #ifdef ASC
-# undef ASC
+# define ASC 1
 #endif
-#define ASC 1
 
 #ifdef DESC
-# undef DESC
+# define DESC -1
 #endif
-#define DESC -1
 
-typedef struct  s_lsort
-{
-  int           start;
-  int           end;
-  void          *compare;
-}               t_lsort;
+typedef struct	s_lsort {
+	int	start;
+	int	end;
+	void	*compare;
+}	lsort_t;
 
-t_clist    *new_node(t_clist *list, void *data);
-int       swap_node(t_clist *node1, t_clist *node2);
-t_clist    *remove_node(t_clist *list, t_list_free);
-t_clist    *free_list(t_clist *list, t_list_free);
-t_clist    *sort_list(t_clist *list, t_list_cmp, int direction);
-t_clist    *find_node(t_clist *list, void *data, t_list_cmp cmp);
-t_clist    *movein_list(t_clist *list, const int n);
-int       nb_node(t_clist *list);
+clist_t	*new_node(clist_t *list, void *data);
+int	swap_node(clist_t *node1, clist_t *node2);
+clist_t	*remove_node(clist_t *list, list_free_t);
+clist_t	*free_list(clist_t *list, list_free_t);
+clist_t	*sort_list(clist_t *list, list_cmp_t, int direction);
+clist_t	*find_node(clist_t *list, void *data, list_cmp_t cmp);
+clist_t	*movein_list(clist_t *list, const int n);
+int	nb_node(clist_t *list);
 
 #endif

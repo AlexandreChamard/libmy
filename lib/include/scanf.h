@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:13:24 2017 Alexandre Chamard-bois
-** Last update Mon Aug 21 12:44:57 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:01:12 2017 alexandre Chamard-bois
 */
 
 #ifndef SCAN_H_
@@ -19,49 +19,45 @@
 # define V_BUFF(i, fd)  ((i) == READ_SIZE || !POS(fd->buffer) ? 1 : 0)
 # define INCR(fd)  (V_BUFF(++fd->buffer.i, fd) && reset_buff(fd) ? 1 : 0)
 
-typedef struct  s_format
-{
-  const int     fd;
-  char          *str;
-  va_list       ap;
-}               t_format;
+typedef struct		s_format {
+	const int	fd;
+	char		*str;
+	va_list		ap;
+}	format_t;
 
-typedef struct   s_option
-{
-  int             nb_max;
-  char            without[42];
-}                 t_option;
+typedef struct	s_option {
+	int	nb_max;
+	char	without[42];
+}	option_t;
 
-typedef struct   s_base
-{
-  int             size;
-  char            base[16];
-}                 t_base;
+typedef struct	s_base {
+	int	size;
+	char	base[16];
+}	base_t;
 
-typedef struct  s_scan
-{
-  char          *patern;
-  int           (*func)(t_myfd *, t_format*, t_option option);
-}               t_scan;
+typedef struct	s_scan {
+	char	*patern;
+	int	(*func)(myfd_t *, format_t*, option_t option);
+}	scan_t;
 
-int scan(t_myfd *fd, t_format format);
-int reset_buff(t_myfd *fd);
-int get_format(t_myfd *fd, t_format *format);
-int is_blank(t_myfd *fd);
-int _getll(t_myfd *fd, long long *nb);
-int _getfloat(t_myfd *fd, double *nb);
-int _scan_nbrbase(t_myfd *fd, t_format *format, t_base base);
+int	scan(myfd_t *fd, format_t format);
+int	reset_buff(myfd_t *fd);
+int	get_format(myfd_t *fd, format_t *format);
+int	is_blank(myfd_t *fd);
+int	_getll(myfd_t *fd, long long *nb);
+int	_getfloat(myfd_t *fd, double *nb);
+int	_scan_nbrbase(myfd_t *fd, format_t *format, base_t base);
 
 /* SCAN */
-int _scan_int(t_myfd *fd, t_format *format, t_option opt);
-int _scan_octal(t_myfd *fd, t_format *format, t_option opt);
-int _scan_hexa1(t_myfd *fd, t_format *format, t_option opt);
-int _scan_hexa2(t_myfd *fd, t_format *format, t_option opt);
-int _scan_bin(t_myfd *fd, t_format *format, t_option opt);
-int _scan_long(t_myfd *fd, t_format *format, t_option opt);
-int _scan_longlong(t_myfd *fd, t_format *format, t_option opt);
-int _scan_float(t_myfd *fd, t_format *format, t_option opt);
-int _scan_str(t_myfd *fd, t_format *format, t_option opt);
-int _scan_char(t_myfd *fd, t_format *format, t_option opt);
+int	_scan_int(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_octal(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_hexa1(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_hexa2(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_bin(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_long(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_longlong(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_float(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_str(myfd_t *fd, format_t *format, option_t opt);
+int	_scan_char(myfd_t *fd, format_t *format, option_t opt);
 
 #endif

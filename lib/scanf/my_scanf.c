@@ -5,35 +5,36 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Aug 18 22:00:08 2017 Alexandre Chamard-bois
-** Last update Mon Aug 21 12:41:14 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:44:27 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
 #include "scanf.h"
 
-int my_scanf(char *str, ...)
+int	my_scanf(char *str, ...)
 {
-  static t_myfd fd = {0, 0, (t_buffer){"", 0}};
-  t_format format;
-  int nb_read;
+	static myfd_t	fd = {0, 0, (buffer_t){"", 0}};
+	format_t	format;
+	int		nb_read;
 
-  if (fd.end)
-    return (-1);
-  format.str = str;
-  va_start(format.ap, str);
-  nb_read = scan(&fd, format);
-  va_end(format.ap);
-  return (nb_read);
+	if (fd.end) {
+		return (-1);
+	}
+	format.str = str;
+	va_start(format.ap, str);
+	nb_read = scan(&fd, format);
+	va_end(format.ap);
+	return (nb_read);
 }
 
-int my_dscanf(t_myfd *fd, char *str, ...)
+int	my_dscanf(myfd_t *fd, char *str, ...)
 {
-  t_format format;
-  int nb_read;
+	format_t	format;
+	int		nb_read;
 
-  format.str = str;
-  va_start(format.ap, str);
-  nb_read = scan(fd, format);
-  va_end(format.ap);
-  return (nb_read);
+	format.str = str;
+	va_start(format.ap, str);
+	nb_read = scan(fd, format);
+	va_end(format.ap);
+	return (nb_read);
 }

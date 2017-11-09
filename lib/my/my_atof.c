@@ -5,47 +5,41 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Fri Feb 17 10:02:38 2017 Alexandre Chamard-bois
-** Last update Wed Apr 12 21:45:12 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:40:55 2017 alexandre Chamard-bois
 */
 
-int getfl(const char *str, int *rang)
+int 		getfl(const char *str, int *rang)
 {
-  int fl;
-  int   max;
+	int	fl = 0;
+	int	max = 0;
 
-  fl = 0;
-  max = 8;
-  while (str[*rang] >= '0' && str[*rang] <= '9' && --max)
-  {
-    fl = fl * 10 + str[*rang] - '0';
-    (*rang)++;
-  }
-  return (fl);
+	while (str[*rang] >= '0' && str[*rang] <= '9' && --max) {
+		fl = fl * 10 + str[*rang] - '0';
+		(*rang)++;
+	}
+	return (fl);
 }
 
-double my_atof(const char *str)
+double	my_atof(const char *str)
 {
-  double nb;
-  double fl;
-  int rang;
-  int nega;
-  int i;
+	double	nb = 0;
+	double	fl = 0;
+	int	rang = 0;
+	int	nega = 1;
+	int	i = 0;
 
-  nb = 0;
-  fl = 0;
-  rang = 0;
-  i = 0;
-  nega = 1;
-  if (*str == '-' && (nega = -1))
-    i++;
-  while (str[i] >= '0' && str[i] <= '9')
-  {
-    nb = nb * 10 + str[i] - '0';
-    i++;
-  }
-  if (str[i] == '.')
-    fl = getfl(str + i + 1, &rang);
-  while ((--rang) > -1)
-    fl /= 10;
-  return ((nb + fl) * nega);
+	if (*str == '-' && (nega = -1)) {
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9') {
+		nb = nb * 10 + str[i] - '0';
+		i++;
+	}
+	if (str[i] == '.') {
+		fl = getfl(str + i + 1, &rang);
+	}
+	while ((--rang) > -1) {
+		fl /= 10;
+	}
+	return ((nb + fl) * nega);
 }

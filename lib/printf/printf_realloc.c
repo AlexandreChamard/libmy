@@ -5,29 +5,26 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sun Feb  5 00:20:43 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:32:18 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 12:01:13 2017 alexandre Chamard-bois
 */
 
 #include "printf.h"
 #include "libmy.h"
 
-char *_printf_realloc(char *str, int newsize)
+char	*_printf_realloc(char *str, size_t newsize)
 {
-  int i;
-  char *newstr;
+	char	*newstr = my_malloc(sizeof(char) * newsize);
+	size_t i = 0;
 
-  if (!(newstr = my_malloc(sizeof(char) * newsize)))
-    return (NULL);
-  i = 0;
-  if (str)
-  {
-    while (str[i] && i < newsize)
-    {
-      newstr[i] = str[i];
-      i++;
-    }
-    my_free(str);
-  }
-  newstr[i] = 0;
-  return (newstr);
+	if (!newstr) {
+		return (NULL);
+	}
+	if (str) {
+		for (; str[i] && i < newsize; i++) {
+			newstr[i] = str[i];
+		}
+		my_free(str);
+	}
+	newstr[i] = 0;
+	return (newstr);
 }

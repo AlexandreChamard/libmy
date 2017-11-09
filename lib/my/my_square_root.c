@@ -5,24 +5,19 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Fri Oct  7 20:53:54 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 23:21:49 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:10:43 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
 
 int		my_square_root(const int nb)
 {
-	int	nombre;
-	int	au_carre;
+	int	nombre = 0;
+	int	au_carre = 0;
 
-	au_carre = 0;
-	nombre = 0;
-	while (au_carre < nb)
-	{
-		nombre++;
+	while (au_carre < nb) {
 		au_carre = nombre * nombre;
+		nombre++;
 	}
-	if (nb == au_carre)
-		return (nombre);
-	return (0);
+	return (nb == au_carre ? nombre : 0);
 }

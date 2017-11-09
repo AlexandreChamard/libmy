@@ -5,123 +5,117 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sat Apr 29 16:25:21 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 18:03:26 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 12:05:28 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
 #include "scanf.h"
 
-int
-_getll(t_myfd *fd, long long *nb)
+int	_getll(myfd_t *fd, long long *nb)
 {
-  int neg;
+	int 	neg;
 
-  if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-')
-    return (1);
-  *nb = 0;
-  neg = 1;
-  if (POS(fd->buffer) == '-')
-  {
-    neg = -1;
-    if (INCR(fd))
-      return (1);
-  }
-  while (POS(fd->buffer) <= '9' && POS(fd->buffer) >= '0')
-  {
-    *nb = *nb * 10 + POS(fd->buffer) - '0';
-    if (INCR(fd))
-      return (1);
-  }
-  *nb = *nb * neg;
-  return (0);
+	if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-') {
+		return (1);
+	}
+	*nb = 0;
+	neg = 1;
+	if (POS(fd->buffer) == '-') {
+		neg = -1;
+		if (INCR(fd)) {
+			return (1);
+		}
+	}
+	while (POS(fd->buffer) <= '9' && POS(fd->buffer) >= '0') {
+		*nb = *nb * 10 + POS(fd->buffer) - '0';
+		if (INCR(fd)) {
+			return (1);
+		}
+	}
+	*nb = *nb * neg;
+	return (0);
 }
 
-static inline int
-_verif_base(const char c, const char *base, int len)
+static inline int	_verif_base(const char c, const char *base, size_t len)
 {
-  int i;
-
-  i = 0;
-  while (i < len)
-  {
-    if (c == base[i])
-      return (i);
-    i++;
-  }
-  return (-1);
+	for (size_t i = 0; i < len; i++) {
+		if (c == base[i])
+		return (i);
+	}
+	return (-1);
 }
 
-int
-_scan_nbrbase(t_myfd *fd, t_format *format, t_base base)
+int	_scan_nbrbase(myfd_t *fd, format_t *format, base_t base)
 {
-  int *nb;
-  int pos;
+	int	*nb = va_arg(format->ap, int *);
+	int	pos;
 
-  if (_verif_base(POS(fd->buffer), base.base, base.size) == -1)
-    return (1);
-  if (!(nb = va_arg(format->ap, int *)))
-    return (0);
-  *nb = 0;
-  while ((pos = _verif_base(POS(fd->buffer), base.base, base.size)) != -1)
-  {
-    *nb = *nb * base.size + pos;
-    if (INCR(fd))
-      return (1);
-  }
-  return (0);
+	if (_verif_base(POS(fd->buffer), base.base, base.size) == -1) {
+		return (1);
+	}
+	if (!nb) {
+		return (0);
+	}
+	*nb = 0;
+	while ((pos = _verif_base(POS(fd->buffer), base.base, base.size)) != -1) {
+		*nb = *nb * base.size + pos;
+		if (INCR(fd)) {
+			return (1);
+		}
+	}
+	return (0);
 }
 
-int
-_getfl(t_myfd *fd, double *nb)
+int	_getfl(myfd_t *fd, double *nb)
 {
-  double fl;
-  int rang;
+	double	fl = 0;
+	int	rang = 0;
 
-  if (POS(fd->buffer) != '.')
-    return (0);
-  if (INCR(fd))
-    return (1);
-  fl = 0;
-  rang = 0;
-  while (POS(fd->buffer) >= '0' && POS(fd->buffer) <= '9')
-  {
-    fl = fl * 10 + POS(fd->buffer) - '0';
-    if (INCR(fd))
-      return (1);
-    rang++;
-  }
-  while (rang)
-  {
-    fl /= 10.0;
-    rang--;
-  }
-  *nb += fl;
-  return (0);
+	if (POS(fd->buffer) != '.') {
+		return (0);
+	}
+	if (INCR(fd)) {
+		return (1);
+	}
+	while (POS(fd->buffer) >= '0' && POS(fd->buffer) <= '9') {
+		fl = fl * 10 + POS(fd->buffer) - '0';
+		if (INCR(fd)) {
+			return (1);
+		}
+		rang++;
+	}
+	while (rang) {
+		fl /= 10.0;
+		rang--;
+	}
+	*nb += fl;
+	return (0);
 }
 
-int
-_getfloat(t_myfd *fd, double *nb)
+int	_getfloat(myfd_t *fd, double *nb)
 {
-  int neg;
+	int	neg = 1;
 
-  if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-'&& POS(fd->buffer) != '.')
-    return (1);
-  *nb = 0;
-  neg = 1;
-  if (POS(fd->buffer) == '-')
-  {
-    neg = !neg;
-    if (INCR(fd))
-      return (1);
-  }
-  while (POS(fd->buffer) >= '0' && POS(fd->buffer) <= '9')
-  {
-    *nb = *nb * 10 + POS(fd->buffer) - '0';
-    if (INCR(fd))
-      return (1);
-  }
-  if (_getfl(fd, nb))
-    return (1);
-  *nb *= neg;
-  return (0);
+	if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-'&& POS(fd->buffer) != '.') {
+		return (1);
+	}
+	*nb = 0;
+	if (POS(fd->buffer) == '-')
+	{
+		neg *= -1;
+		if (INCR(fd)) {
+			return (1);
+		}
+	}
+	while (POS(fd->buffer) >= '0' && POS(fd->buffer) <= '9') {
+		*nb = *nb * 10 + POS(fd->buffer) - '0';
+		if (INCR(fd)) {
+			return (1);
+		}
+	}
+	if (_getfl(fd, nb)) {
+		return (1);
+	}
+	*nb *= neg;
+	return (0);
 }

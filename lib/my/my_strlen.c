@@ -5,17 +5,20 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct  6 15:32:00 2016 Alexandre Chamard-bois
-** Last update Thu Apr 13 11:00:59 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:22:36 2017 alexandre Chamard-bois
 */
 
-int		my_strlen(const char *str)
-{
-  int i;
+#include <sys/types.h>
 
-  if (!str)
-    return (0);
-  i = 0;
-  while (str[i])
-    i++;
-  return (i);
+size_t		my_strlen(const char *str)
+{
+	size_t i = 0;
+
+	if (!str) {
+		return (0);
+	}
+	while (str[i]) {
+		i++;
+	}
+	return (i);
 }

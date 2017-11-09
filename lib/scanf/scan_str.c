@@ -5,59 +5,56 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Apr 30 13:00:59 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 18:04:13 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:56:28 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
 #include "scanf.h"
 
-int verif_option(char c, int act, t_option option)
+int	verif_option(char c, int act, option_t option)
 {
-  int i;
-
-  i = 0;
-  if (option.nb_max && act >= option.nb_max)
-    return (0);
-  while (option.without[i] && i < 42)
-  {
-    if (c == option.without[i])
-      return (0);
-    i++;
-  }
-  return (1);
+	if (option.nb_max && act >= option.nb_max) {
+		return (0);
+	}
+	for (size_t i = 0; option.without[i] && i < 42; i++) {
+		if (c == option.without[i]) {
+			return (0);
+		}
+	}
+	return (1);
 }
 
-int
-_scan_str(t_myfd *fd, t_format *format, t_option option)
+int	_scan_str(myfd_t *fd, format_t *format, option_t option)
 {
-  char *str;
-  int i;
+	char	*str = va_arg(format->ap, char *);
+	size_t	i = 0;
 
-  if (!(str = va_arg(format->ap, char *)))
-    return (0);
-  i = 0;
-  if (!verif_option(POS(fd->buffer), i, option))
-    return (1);
-  while (!BLANK(POS(fd->buffer)) && verif_option(POS(fd->buffer), i, option))
-  {
-    str[i] = POS(fd->buffer);
-    if (INCR(fd))
-      return (1);
-    i++;
-  }
-  return (0);
+	if (!str) {
+		return (0);
+	}
+	if (!verif_option(POS(fd->buffer), i, option)) {
+		return (1);
+	}
+	while (!BLANK(POS(fd->buffer)) && verif_option(POS(fd->buffer), i, option)) {
+		str[i] = POS(fd->buffer);
+		if (INCR(fd)) {
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
-int
-_scan_char(t_myfd *fd, t_format *format, t_option option)
+int	_scan_char(myfd_t *fd, format_t *format, option_t option)
 {
-  char *c;
+	char	*c = va_arg(format->ap, char *);
 
-  (void) option;
-  (void) fd;
-  if (!(c = va_arg(format->ap, char *)))
-    return (0);
-  *c = POS(fd->buffer);
-  fd->buffer.i++;
-  return (0);
+	(void) option;
+	(void) fd;
+	if (!c) {
+		return (0);
+	}
+	*c = POS(fd->buffer);
+	fd->buffer.i++;
+	return (0);
 }
