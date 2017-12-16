@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Apr 30 13:00:59 2017 Alexandre Chamard-bois
-** Last update Thu Nov 09 11:56:28 2017 alexandre Chamard-bois
+** Last update Sat Dec 16 12:33:33 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -35,7 +35,8 @@ int	_scan_str(myfd_t *fd, format_t *format, option_t option)
 	if (!verif_option(POS(fd->buffer), i, option)) {
 		return (1);
 	}
-	while (!BLANK(POS(fd->buffer)) && verif_option(POS(fd->buffer), i, option)) {
+	while (!BLANK(POS(fd->buffer)) &&
+		verif_option(POS(fd->buffer), i, option)) {
 		str[i] = POS(fd->buffer);
 		if (INCR(fd)) {
 			return (1);

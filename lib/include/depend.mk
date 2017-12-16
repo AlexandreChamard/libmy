@@ -10,7 +10,7 @@
 
 CC		=	gcc
 
-RELEASE		=	true
+RELEASE		=	false
 
 OPTI_FLAG	=	-O2
 

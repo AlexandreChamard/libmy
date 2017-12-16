@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sat Apr 29 17:00:19 2017 Alexandre Chamard-bois
-** Last update Thu Nov 09 11:42:15 2017 alexandre Chamard-bois
+** Last update Sat Dec 16 12:34:07 2017 alexandre Chamard-bois
 */
 
 #include <unistd.h>
@@ -100,7 +100,8 @@ int	get_format(myfd_t *fd, format_t *format)
 	if (!POS(fd->buffer) && reset_buff(fd)) {
 		return (-1);
 	}
-	while (g_scan[find].patern && my_wordcmp(format->str + size + 1, g_scan[find].patern)) {
+	while (g_scan[find].patern &&
+		my_wordcmp(format->str + size + 1, g_scan[find].patern)) {
 		find++;
 	}
 	if (!g_scan[find].patern || g_scan[find].func(fd, format, option)) {

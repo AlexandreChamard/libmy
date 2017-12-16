@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Sun Feb  5 00:45:12 2017 Alexandre Chamard-bois
-** Last update Thu Nov 09 11:29:41 2017 alexandre Chamard-bois
+** Last update Thu Nov 09 13:49:15 2017 alexandre Chamard-bois
 */
 
 #include "printf.h"
@@ -41,8 +41,8 @@ char		*call_putstr(va_list ap, char *str)
 	int	i = my_printstrlen(str);
 	char	*add = va_arg(ap, char *);
 
-	if (!str) {
-		my_printstr(str + i, "(NULL)");
+	if (!add) {
+		my_printstr(str + i, "(null)");
 	} else {
 		my_printstr(str + i, add);
 	}

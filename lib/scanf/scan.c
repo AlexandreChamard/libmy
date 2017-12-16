@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:15:40 2017 Alexandre Chamard-bois
-** Last update Thu Nov 09 11:58:33 2017 alexandre Chamard-bois
+** Last update Sat Dec 16 12:33:19 2017 alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -38,7 +38,8 @@ int is_format(myfd_t *fd, char *format)
 {
 	int decal = 0;
 
-	while (format[decal] && format[decal] != '%' && POS(fd->buffer) == format[decal]) {
+	while (format[decal] && format[decal] != '%' &&
+		POS(fd->buffer) == format[decal]) {
 		decal++;
 		if (INCR(fd))
 		return (-1);

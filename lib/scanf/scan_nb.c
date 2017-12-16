@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sat Apr 29 16:25:21 2017 Alexandre Chamard-bois
-** Last update Thu Nov 09 12:05:28 2017 alexandre Chamard-bois
+** Last update Sat Dec 16 12:34:23 2017 alexandre Chamard-bois
 */
 
 #include "libmy.h"
@@ -57,7 +57,8 @@ int	_scan_nbrbase(myfd_t *fd, format_t *format, base_t base)
 		return (0);
 	}
 	*nb = 0;
-	while ((pos = _verif_base(POS(fd->buffer), base.base, base.size)) != -1) {
+	while ((pos = _verif_base(POS(fd->buffer), base.base, base.size))
+		!= -1) {
 		*nb = *nb * base.size + pos;
 		if (INCR(fd)) {
 			return (1);
@@ -96,7 +97,8 @@ int	_getfloat(myfd_t *fd, double *nb)
 {
 	int	neg = 1;
 
-	if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-'&& POS(fd->buffer) != '.') {
+	if (!NUM(POS(fd->buffer)) && POS(fd->buffer) != '-'&&
+		POS(fd->buffer) != '.') {
 		return (1);
 	}
 	*nb = 0;
