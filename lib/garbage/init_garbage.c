@@ -5,19 +5,23 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 20:13:09 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:13:40 2017 Alexandre Chamard-bois
+** Last update Tue Jan 02 16:34:52 2018 alexandre Chamard-bois
 */
 
-#include "garbage.h"
+# ifdef ALLOW_GARBAGE
 
-t_glist *g_garbage = NULL;
+# include "garbage.h"
+
+glist_t *g_garbage = NULL;
 
 __attribute__((constructor)) static void init_main(void)
 {
-  gopen();
+	gopen();
 }
 
 __attribute__((destructor)) static void end_main(void)
 {
-  gclose_all();
+	gclose_all();
 }
+
+# endif

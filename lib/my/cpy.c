@@ -5,16 +5,16 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 09:35:53 2016 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:46:16 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 14:33:37 2017 alexandre Chamard-bois
 */
+
+#include <sys/types.h>
 
 char	*my_strcpy(char *dest, const char *src)
 {
-	int	i;
+	size_t	i = 0;
 
-	i = 0;
-	while (src[i])
-	{
+	while (src[i]) {
 		dest[i] = src[i];
 		i++;
 	}
@@ -22,33 +22,18 @@ char	*my_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*my_strncpy(char *dest, const char *src, int n)
+char	*my_strncpy(char *dest, const char *src, size_t n)
 {
-	int	i;
+	size_t	i = 0;
 
-	i = 0;
-	while (i < n && src[i])
-	{
+	while (i < n && src[i]) {
 		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = 0;
 		i++;
 	}
 	return (dest);
 }
 
-void *my_memcpy(void *dest, const void *src, const int size)
+void *my_memcpy(void *dest, const void *src, size_t size)
 {
-  int i;
-
-  i = 0;
-  while (i < size)
-	{
-		((char*)dest)[i] = ((char*)src)[i];
-		i++;
-	}
-  return (dest);
+	return (my_strncpy(dest, src, size));
 }

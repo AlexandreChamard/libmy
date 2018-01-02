@@ -5,35 +5,35 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Mon Oct 10 20:11:24 2016 Alexandre Chamard-bois
-** Last update Mon May  8 11:27:40 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:11:31 2017 alexandre Chamard-bois
 */
 
 #include "macro.h"
 
 int		my_str_isnum(const char *str)
 {
-	if (*str == '-')
+	if (*str == '-') {
 		str++;
-	while (NUM(*str))
+	}
+	while (NUM(*str)) {
 		str++;
-	if (*str)
-		return (0);
-	return (1);
+	}
+	return (!*str);
 }
 
 int my_is_float(const char *str)
 {
-	if (*str == '-')
+	if (*str == '-') {
 		str++;
-	while (NUM(*str))
-		str++;
-	if (*str == '.')
-	{
-		str++;
-		while (NUM(*str))
-			str++;
 	}
-	if (*str)
-		return (0);
-	return (1);
+	while (NUM(*str)) {
+		str++;
+	}
+	if (*str == '.') {
+		str++;
+		while (NUM(*str)) {
+			str++;
+		}
+	}
+	return (!*str);
 }

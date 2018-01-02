@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Fri Apr 14 08:13:04 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:14:50 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:43:07 2017 alexandre Chamard-bois
 */
 
 #include <stdlib.h>
@@ -13,14 +13,12 @@
 
 char **free_tab(char **tab)
 {
-  int i;
+	size_t i = 0;
 
-  i = 0;
-  while (tab[i])
-  {
-    my_free(tab[i]);
-    i++;
-  }
-  my_free(tab);
-  return (NULL);
+	while (tab[i]) {
+		my_free(tab[i]);
+		i++;
+	}
+	my_free(tab);
+	return (NULL);
 }

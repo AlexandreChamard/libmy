@@ -5,16 +5,16 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 15:35:27 2017 Alexandre Chamard-bois
-** Last update Mon Jan  2 15:35:30 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:36:36 2017 alexandre Chamard-bois
 */
-
-#ifndef  READ_SIZE
-# define   READ_SIZE (10)
-#endif    /*!READ_SIZE*/
 
 #ifndef   NEXT_LINE
 # define   NEXT_LINE
 
-char *get_next_line(const int);
+# ifndef  READ_SIZE
+#  define   READ_SIZE 512
+# endif
+
+char	*get_next_line(const int fd);
 
 #endif

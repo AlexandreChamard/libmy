@@ -5,48 +5,42 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr 12 20:06:42 2017 Alexandre Chamard-bois
-** Last update Sun Apr 30 12:58:10 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 11:28:08 2017 alexandre Chamard-bois
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <sys/types.h>
 #include "libmy.h"
 
 int is_separator(char c, const char *separators)
 {
-  int i;
-
-  i = 0;
-  while (separators[i])
-  {
-    if (c == separators[i])
-      return (1);
-    i++;
-  }
-  return (0);
+	for (size_t i = 0; separators[i]; i++) {
+		if (c == separators[i]) {
+			return (1);
+		}
+	}
+	return (0);
 }
 
 char *my_strtok(const char *str, const char *separators)
 {
-  int i;
-  static int j;
-  static const char *save = NULL;
-  char *new_str;
+	static const char *save = NULL;
+	static int j = 0;
+	char *new_str;
+	int i = j;
 
-  new_str = NULL;
-  if (!save || save != str)
-  {
-    j = 0;
-    save = str;
-  }
-  if (!str[j])
-    return (NULL);
-  i = j;
-  while (str[i] && !is_separator(str[i], separators))
-    i++;
-  new_str = my_strndup(str + j, i - j);
-  j = i;
-  while (is_separator(str[j], separators))
-    j++;
-  return (new_str);
+	if (!save || save != str) {
+		save = str;
+	}
+	if (!str[j]) {
+		return (NULL);
+	}
+	while (str[i] && !is_separator(str[i], separators)) {
+		i++;
+	}
+	new_str = my_strndup(str + j, i - j);
+	j = i;
+	while (is_separator(str[j], separators)) {
+		j++;
+	}
+	return (new_str);
 }

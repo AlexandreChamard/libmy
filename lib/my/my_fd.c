@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 17:20:38 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:26:00 2017 Alexandre Chamard-bois
+** Last update Wed Nov 08 13:42:41 2017 alexandre Chamard-bois
 */
 
 #include <fcntl.h>
@@ -14,39 +14,41 @@
 #include "libmy.h"
 #include "scanf.h"
 
-t_myfd*
-my_fd_from_fd(const int fd)
+myfd_t	*my_fd_from_fd(const int fd)
 {
-  t_myfd *myfd;
+	myfd_t *myfd = my_malloc(sizeof(myfd_t));
 
-  if (!(myfd = my_malloc(sizeof(t_myfd))))
-    return (NULL);
-  my_memset(myfd, 0, sizeof(t_myfd));
-  myfd->fd = fd;
-  return (myfd);
+	if (!myfd) {
+		return (NULL);
+	}
+	my_memset(myfd, 0, sizeof(myfd_t));
+	myfd->fd = fd;
+	return (myfd);
 }
 
-t_myfd*
-my_open(const char *name, const int right)
+myfd_t	*my_open(const char *name, const int right)
 {
-  int fd;
-  t_myfd *myfd;
+	myfd_t *myfd;
+	int fd = open(name, right);
 
-  if ((fd = open(name, right)) == -1)
-    return (NULL);
-  if (!(myfd = my_malloc(sizeof(t_myfd))))
-    return (NULL);
-  my_memset(myfd, 0, sizeof(t_myfd));
-  myfd->fd = fd;
-  return (myfd);
+	if (fd == -1) {
+		return (NULL);
+	}
+	if (!(myfd = my_malloc(sizeof(myfd_t)))) {
+		return (NULL);
+	}
+	my_memset(myfd, 0, sizeof(myfd_t));
+	myfd->fd = fd;
+	return (myfd);
 }
 
-void
-my_close(t_myfd *myfd)
+void	my_close(myfd_t *myfd)
 {
-  if (!myfd)
-    return ;
-  if (myfd->fd > 2)
-    close(myfd->fd);
-  my_free(myfd);
+	if (!myfd) {
+		return ;
+	}
+	if (myfd->fd > 2) {
+		close(myfd->fd);
+	}
+	my_free(myfd);
 }

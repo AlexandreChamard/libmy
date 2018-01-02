@@ -5,29 +5,34 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 18:30:08 2017 Alexandre Chamard-bois
-** Last update Sun Aug 20 20:13:52 2017 Alexandre Chamard-bois
+** Last update Tue Jan 02 15:34:26 2018 alexandre Chamard-bois
 */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include "garbage.h"
+# ifdef ALLOW_GARBAGE
 
-int _gopen(t_glist **li)
+# include <stdlib.h>
+# include "garbage.h"
+# include "libmy.h"
+
+int _gopen(glist_t **li)
 {
-  t_glist *l;
+	glist_t *l = malloc(sizeof(glist_t));
 
-  if (!(l = malloc(sizeof(t_glist))))
-    return (1);
-  memset(l, 0, sizeof(t_glist));
-  l->prev = *li;
-  if (*li)
-    (*li)->next = l;
-  *li = l;
-  return (0);
+	if (!l) {
+		return (1);
+	}
+	my_memset(l, 0, sizeof(glist_t));
+	l->prev = *li;
+	if (*li) {
+		(*li)->next = l;
+	}
+	*li = l;
+	return (0);
 }
 
 int gopen()
 {
-  return (_gopen(&g_garbage));
+	return (_gopen(&g_garbage));
 }
+
+# endif

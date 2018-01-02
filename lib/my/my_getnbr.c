@@ -5,20 +5,21 @@
 ** Login   <Alex.Chamardbois@epitech.net>
 **
 ** Started on  Thu Oct  6 22:28:26 2016 Alexandre Chamard-bois
-** Last update Wed Apr 12 22:48:11 2017 Alexandre Chamard-bois
+** Last update Thu Nov 09 10:53:36 2017 alexandre Chamard-bois
 */
 
-int			my_getnbr(const char *str)
-{
-	int		nbr;
-	int		nega;
+#include <sys/types.h>
 
-	nbr = 0;
-	nega = 1;
-	if (*str == '-' && (nega = -1))
+int		my_getnbr(const char *str)
+{
+	int	nbr = 0;
+	int	nega = 1;
+
+	if (*str == '-') {
+		nega = -1;
 		str++;
-	while (*str <= '9' && *str >= '0')
-	{
+	}
+	while (*str <= '9' && *str >= '0') {
 		nbr = nbr * 10 + *str - '0';
 		str++;
 	}
@@ -27,58 +28,47 @@ int			my_getnbr(const char *str)
 
 int is_base(const char c, const char *base, const int i)
 {
-  if (!c)
-    return (-1);
-  if (!*base)
-    return (-2);
-  if (c == *base)
-    return (i);
-  return (is_base(c, base + 1, i + 1));
+	if (!c) {
+		return (-1);
+	}
+	if (!*base) {
+		return (-2);
+	}
+	if (c == *base) {
+		return (i);
+	}
+	return (is_base(c, base + 1, i + 1));
 }
 
 int verif_base(const char *str)
 {
-  int i;
-  int j;
+	size_t i = 0;
 
-  i = -1;
-  while (str[++i])
-    {
-      if (str[i] == '-' || str[i] == '+')
-	return (-1);
-      j = i;
-      while (str[++j])
-	if (str[i] == str[j])
-	  return (-1);
-    }
-  return (i);
+	if (!str) {
+		return (-1);
+	}
+	for (; str[i]; i++) {
+		for (size_t j = i; str[j]; j++) {
+			if (str[i] == str[j]) {
+				return (-1);
+			}
+		}
+	}
+	return (i);
 }
 
 int my_getnbr_base(const char *str, const char *base)
 {
-  int nb;
-  int pos;
-  int len;
-  int neg;
+	int len = verif_base(base);
+	int nb = 0;
+	int pos;
 
-  if (!str || !base)
-    return (0);
-  nb = 0;
-  if ((len = verif_base(base)) == -1)
-    return (0);
-  neg = 1;
-  while (*str == '-' || *str == '+')
-    {
-      if (*str == '-')
-	neg *= -1;
-      str++;
-    }
-  while ((pos = is_base(*str, base, 0)) >= 0)
-    {
-      nb = nb * len + pos;
-      str++;
-    }
-  if (pos == -2)
-    return (0);
-  return (nb * neg);
+	if (len == -1 || !str) {
+		return (0);
+	}
+	while ((pos = is_base(*str, base, 0)) >= 0) {
+		nb = nb * len + pos;
+		str++;
+	}
+	return (pos != -2 ? nb : 0);
 }
