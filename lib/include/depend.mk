@@ -14,6 +14,8 @@ RELEASE		=	false
 
 OPTI_FLAG	=	-O2
 
+ALLOW_GARBAGE	=	true
+
 CFLAGS		+=	-W -Wall -Wextra
 
 ifeq	($(RELEASE),true)
@@ -21,6 +23,9 @@ ifeq	($(RELEASE),true)
  CFLAGS		+=	-Werror -Wno-unused-result
 else
  CFLAGS		+=	-O0 -g -Wuninitialized
+endif
+ifeq	($(ALLOW_GARBAGE),true)
+	CFLAGS	+=	-D ALLOW_GARBAGE
 endif
 
 ODIR		=	obj

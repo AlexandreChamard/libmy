@@ -5,11 +5,13 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Jul  2 16:18:29 2017 Alexandre Chamard-bois
-** Last update Wed Nov 08 13:08:58 2017 alexandre Chamard-bois
+** Last update Tue Jan 02 15:34:26 2018 alexandre Chamard-bois
 */
 
-#include <stdio.h>
-#include "garbage.h"
+# ifdef ALLOW_GARBAGE
+
+# include <stdio.h>
+# include "garbage.h"
 
 void _gclose(glist_t **li)
 {
@@ -37,3 +39,5 @@ void gclose_all()
 		_gclose(&g_garbage);
 	}
 }
+
+# endif

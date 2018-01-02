@@ -5,12 +5,14 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Aug 20 18:30:08 2017 Alexandre Chamard-bois
-** Last update Wed Nov 08 13:09:27 2017 alexandre Chamard-bois
+** Last update Tue Jan 02 15:34:26 2018 alexandre Chamard-bois
 */
 
-#include <stdlib.h>
-#include "garbage.h"
-#include "libmy.h"
+# ifdef ALLOW_GARBAGE
+
+# include <stdlib.h>
+# include "garbage.h"
+# include "libmy.h"
 
 int _gopen(glist_t **li)
 {
@@ -32,3 +34,5 @@ int gopen()
 {
 	return (_gopen(&g_garbage));
 }
+
+# endif

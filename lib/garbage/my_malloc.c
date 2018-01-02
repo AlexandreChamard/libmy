@@ -5,14 +5,17 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Mon May 22 13:44:21 2017 Alexandre Chamard-bois
-** Last update Wed Nov 08 13:11:00 2017 alexandre Chamard-bois
+** Last update Tue Jan 02 15:34:26 2018 alexandre Chamard-bois
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "macro.h"
-#include "garbage.h"
-#include "libmy.h"
+# include <stdio.h>
+# include <stdlib.h>
+
+# ifdef ALLOW_GARBAGE
+
+# include "macro.h"
+# include "garbage.h"
+# include "libmy.h"
 
 void *_my_malloc(size_t size, glist_t *li)
 {
@@ -36,11 +39,6 @@ void *_my_malloc(size_t size, glist_t *li)
 	new_node->sizeptr = size;
 	new_node->magic = MAGIC;
 	return (new_node->ptr);
-}
-
-void *my_malloc(size_t size)
-{
-	return (_my_malloc(size, g_garbage));
 }
 
 garbage_t *replace_node(garbage_t *node, garbage_t *new_node)
@@ -73,3 +71,17 @@ void *my_realloc(void *ptr, size_t size)
 	replace_node(node, new_node);
 	return (new_node->ptr);
 }
+
+void *my_malloc(size_t size)
+{
+	return (_my_malloc(size, g_garbage));
+}
+
+# else
+
+void *my_malloc(size_t size)
+{
+	return (malloc(size));
+}
+
+# endif

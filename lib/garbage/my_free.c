@@ -5,12 +5,15 @@
 ** Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Jul  2 16:15:19 2017 Alexandre Chamard-bois
-** Last update Wed Nov 08 13:10:10 2017 alexandre Chamard-bois
+** Last update Tue Jan 02 15:34:26 2018 alexandre Chamard-bois
 */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "garbage.h"
+# include <stdlib.h>
+# include <stdio.h>
+
+# ifdef ALLOW_GARBAGE
+
+# include "garbage.h"
 
 garbage_t *gfind_grb(glist_t *li, void *addr)
 {
@@ -59,3 +62,12 @@ void my_free(void *ptr)
 {
 	_my_free(ptr - sizeof(garbage_t), g_garbage);
 }
+
+# else
+
+void my_free(void *ptr)
+{
+	free(ptr);
+}
+
+# endif
