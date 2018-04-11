@@ -9,9 +9,10 @@
 #define TYPE_H
 
 enum bool_e {
-	false = 0,
+	false,
 	true
 };
+
 typedef int 	bool;
 typedef void* 	ptr;
 typedef void** 	refptr;

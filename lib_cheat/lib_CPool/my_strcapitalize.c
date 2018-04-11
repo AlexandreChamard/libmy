@@ -5,17 +5,12 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Mon Jan  2 23:09:42 2017 Alexandre Chamard-bois
-** Last update Wed Oct  4 14:08:04 2017 Alexandre Chamard-bois
+** Last update Wed Feb 28 20:05:48 2018 alexandre Chamard-bois
 */
-
-int n(char c)
-{
-  return (c < '0' || c > '9' ? 0 : 1);
-}
 
 int an(char c)
 {
-  return (c < 'A' || c > 'z' ? n(c) : c > 'Z' ? c < 'a' ? 0 : 2 : 3);
+  return (c < 65 || c > 122 ? c > 39 && c < 58 : c > 90 ? c < 97 ? 0 : 2 : 3);
 }
 
 void capitalize(char *s, int n)

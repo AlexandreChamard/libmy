@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu@epitech.eu>
 ##
 ## Started on  Fri Apr  7 15:45:41 2017 Alexandre Chamard-bois
-## Last update Sun Aug 20 22:08:10 2017 Alexandre Chamard-bois
+## Last update Wed Feb 21 23:04:19 2018 alexandre Chamard-bois
 ##
 
 include ./include/depend.mk
@@ -14,7 +14,7 @@ AR		=	ar rc
 
 SRC_MY		=	cat.c					\
 			clean_line.c				\
-			cmp.c					\
+#			cmp.c					\
 			cpy.c					\
 			dup.c					\
 			match.c					\

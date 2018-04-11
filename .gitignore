@@ -11,5 +11,6 @@ lib/test.c
 lib/a.out
 lib_cheat/main.c
 lib_cheat/a.out
+obj
 
 lib2.0

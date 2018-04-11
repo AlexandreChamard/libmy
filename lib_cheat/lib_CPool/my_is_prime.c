@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 15:09:56 2017 Alexandre Chamard-bois
-** Last update Wed Oct  4 12:01:14 2017 Alexandre Chamard-bois
+** Last update Wed Feb 28 19:54:13 2018 alexandre Chamard-bois
 */
 
 int f(int nb, int p)
@@ -15,5 +15,5 @@ int f(int nb, int p)
 
 int my_is_prime(int nb)
 {
-  return (nb > 3 ? nb % 2 ? f(nb, 3) : 0 : nb > 1 ? 1 : 0);
+  return (nb > 3 ? nb % 2 ? f(nb, 3) : 0 : nb > 1);
 }

@@ -5,7 +5,7 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Tue Jan  3 11:08:38 2017 Alexandre Chamard-bois
-** Last update Wed Oct  4 14:57:05 2017 Alexandre Chamard-bois
+** Last update Wed Feb 28 20:05:59 2018 alexandre Chamard-bois
 */
 
 #ifndef   LIB_CHEAT_H
@@ -26,7 +26,6 @@ int   nb_word(char *str, char c, int i, int n);/*(.., 0, 0)*/ /* 1 2 */
 int   size_line(char *str);                                   /* 1 1 */
 int   size_word(char *str);                                   /* 1 1 */
 int   my_swapp(int *a, int *b);                               /* 1 3 */
-char *my_strdup(char *str);                                   /* 2 2 */
 
 // DONE //                                                    /* 48 58 */
 
@@ -48,7 +47,7 @@ int   my_str_islower(char *str);                              /* 1 1 */
 int   my_str_isnum(char *str);                                /* 1 1 */
 int   my_str_isprintable(char *str);                          /* 1 1 */
 int   my_str_isupper(char *str);                              /* 1 1 */
-char  *my_strcapitalize(char *str);                           /* 4 5 */
+char  *my_strcapitalize(char *str);                           /* 3 4 */
 char  *my_strcat(char *dest, char *src);                      /* 2 4 */
 int   my_strcmp(char *s1, char *s2);                          /* 1 1 */
 char  *my_strncpy(char *dest, char* src, int n);              /* 1 1 */

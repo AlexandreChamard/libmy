@@ -5,10 +5,8 @@
 ** Login   <alexandre.chamard-bois@epitech.eu>
 **
 ** Started on  Wed Jan  4 10:58:27 2017 Alexandre Chamard-bois
-** Last update Tue May 23 11:29:21 2017 Alexandre Chamard-bois
+** Last update Wed Feb 28 20:07:15 2018 alexandre Chamard-bois
 */
-
-#include <unistd.h>
 
 void my_putchar(char c);
 int my_putnbr_base(int nb, char *base);
